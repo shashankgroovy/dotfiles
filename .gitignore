@@ -1,0 +1,4 @@
+# skip tracking the vim swap files
+*.swp
+
+# everything else looks clean :)

@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/shashank/Code/django_apps'
+let g:netrw_dirhist_2='/home/shashank/Code/clisp-clisp'
+let g:netrw_dirhist_3='/home/shashank/Code/clisp-clisp/src'
+let g:netrw_dirhist_4='/home/shashank/Code/clisp-clisp'
+let g:netrw_dirhist_5='/home/shashank/Blog'
+let g:netrw_dirhist_6='/home/shashank/Blog/oldblog'
+let g:netrw_dirhist_7='/home/shashank/Blog/shashankgroovy.github.io'
+let g:netrw_dirhist_8='/home/shashank/.oh-my-zsh'
