@@ -3,7 +3,7 @@ Borne Again
 
 This shell has purpose.
 
-Screenshot
+Bash Screenshot
 --------------
 
 ![bash](http://i.imgur.com/JkUi4LH.png)
