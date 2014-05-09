@@ -12,7 +12,7 @@ Contains the configurations for the following:
 4. tmux             -- Terminal multiplexer
 ```
 
-### Todo :
+### Todo
 * Make a `shell script` to do all the dirty work. :D
 * Update the bin with `fasd`.
 
