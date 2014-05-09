@@ -12,6 +12,6 @@ tweaks of my own.
 Zsh Screenshot
 --------------
 
-![zsh](http://i.imgur.com/hKyRWY5.png)
+![zsh](http://i.imgur.com/pNXMvmD.png)
 
 

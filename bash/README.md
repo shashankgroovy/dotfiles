@@ -6,6 +6,6 @@ This shell has purpose.
 Screenshot
 --------------
 
-![bash](http://i.imgur.com/zVxY7hn.png)
+![bash](http://i.imgur.com/JkUi4LH.png)
 
 
