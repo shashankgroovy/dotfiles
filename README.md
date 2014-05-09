@@ -1,13 +1,13 @@
 Dotfiles
 --------
 
-Aha! My .dotfiles setup for all GNU/Linux based distributions.
+Aha! My .dotfiles for all GNU/Linux based distributions.
 
-Contains the configurations for the following
+Contains the configurations for the following:
 
 ```
-1. bash             -- Borne Again! Puff! Not Jason borne :P
-2. vim              -- Vim you lovely motherf\*\*ker.
+1. bash             -- Borne Again! Puff! Not Jason Borne :P
+2. vim              -- Vim you lovely motherf**ker.
 3. zsh              -- Damn! right. Oh my Zsh!
 4. tmux             -- Termial multiplexer
 ```
