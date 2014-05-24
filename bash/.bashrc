@@ -49,11 +49,50 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# color definitions:
+# use the following colors in the prompt like this :
+# echo -e "${red}yippiee {blue}ki {green}yay"
+
+# No_color    '\e[0m'        
+# Black       '\e[0;30m'       ##     Red         '\e[0;31m'      
+# Yellow      '\e[0;32m'       ##     Green       '\e[0;33m'   
+# Blue        '\e[0;34m'       ##     Cyan        '\e[0;35m'   
+# Purple      '\e[0;36m'       ##     White       '\e[0;37m' 
+
+# mercuial prompt information
+hg_ps1() {
+    hg prompt "{{branch}}{ at {bookmark}} {status}" 2> /dev/null
+}
+
+hg_dirty() {
+    hg status --no-color 2> /dev/null \
+    | awk '$1 == "?" { unknown = 1 } 
+           $1 != "?" { changed = 1 }
+           END {
+             if (changed) printf "!"
+             else if (unknown) printf "?" 
+           }'
+}
+
+hg_branch() {
+    hg branch 2> /dev/null | \
+        awk '{ printf "\033[1;33m hg➜ \033[01;37m" $1 }'
+    hg bookmarks 2> /dev/null | \
+        awk '/\*/ { printf "\033[37;0m at \033[33;40m" $2 }'
+}
+
+
 # use ➜ in place of $ to change prompt end
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]$ '
+    # use the following with hg-prompt
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h \[\e[1;36m\]\w\[\e[01;37m\] $(hg_ps1) \[\e[0;91m\]$(hg_dirty) \[\e[0m\]'
+
+    # without hg-prompt
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h \[\e[1;36m\]\w\[\e[01;37m\] $(hg_branch) \[\e[0;91m\]$(hg_dirty) \[\e[0m\]'
+    # here \033 == \e which is an ASCII escape character
+
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\n\u at \h in \w $ '
 fi
 unset color_prompt force_color_prompt
 
@@ -122,7 +161,6 @@ alias ipy="ipython"
 
 alias :q="exit"
 alias n="nautilus"
-alias subl="sublime"
 alias refresh="source ~/.bashrc"
 alias bashconfig="gvim ~/.bashrc"
 alias weechat="weechat-curses"
@@ -132,24 +170,17 @@ alias yawn="cowsay -b 'knight is coming' && sleep 3 && sudo pm-hibernate"
 
 # for git
 alias gitcls="git rm -r --cached ."
-#alias gpu="git push -u origin master"
 alias gpu="git push"
 alias gpl="git pull"
 alias gi="git init"
 alias ga="git add"
-alias gc="git commit -am"
+alias gc="git commit -m"
+alias gd="git diff"
 alias gr="git reset"
 alias gst="git status"
 alias gch="git checkout"
 alias gb="git branch"
 
-
-# nginx settings
-alias nginx-start="sudo /etc/init.d/nginx start"
-alias nginx-stop="sudo /etc/init.d/nginx stop"
-alias nginx-reload="sudo /etc/init.d/nginx reload"
-alias nginx-restart="sudo /etc/init.d/nginx restart"
-alias nginx-status="/etc/init.d/nginx status"
 
 ## virtualenv settings
 export WORKON_HOME="$HOME/.virtualenvs"

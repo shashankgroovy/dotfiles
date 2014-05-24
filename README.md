@@ -1,7 +1,12 @@
-Dotfiles
---------
+```
+     _                 _           __  _       _    __ _ _           
+ ___| |__   __ _ _ __ | | _____   / /_| | ___ | |_ / _(_) | ___  ___ 
+/ __| '_ \ / _` | '_ \| |/ / __| / / _` |/ _ \| __| |_| | |/ _ \/ __|
+\__ \ | | | (_| | | | |   <\__ \/ / (_| | (_) | |_|  _| | |  __/\__ \
+|___/_| |_|\__,_|_| |_|_|\_\___/_/ \__,_|\___/ \__|_| |_|_|\___||___/
 
-Aha! My .dotfiles for all GNU/Linux based distributions.
+
+```
 
 Contains the configurations for the following:
 
@@ -13,10 +18,15 @@ Contains the configurations for the following:
 ```
 
 ### Todo
-* Make a `shell script` to do all the dirty work. :D
-* Update the bin with `fasd`.
+> Pick a 3 letter username >:[
+
+* Add mercurial configs
+* Add weechat configs
+* Add cmus configs
+* Update the bin with `fasd`, `figlet`, `friendly find`.
+* Make an auto install `shell script` to do all this ugly work. >:(
 
 ### Screenshots
-> Look inside each of the folders to find the respective screenshots :D
+> Look inside each of the folders to find the respective screenshots.
 
-Time to hack! \m/
+Time to work! :)
