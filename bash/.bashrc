@@ -207,3 +207,9 @@ export GOPATH=/opt/gocode/
 export GOROOT=/opt/go/
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add android development tools to path
+# Eclipse IDE
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse 
+# the android sdk
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools

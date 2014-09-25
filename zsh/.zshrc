@@ -53,7 +53,7 @@ alias gitcls="git rm -r --cached ."
 #alias gpu="git push -u origin master"
 alias gi="git init"
 alias ga="git add"
-alias gc="git commit -m"
+alias gc="git commit"
 alias gd="git diff"
 alias gr="git reset"
 alias gm="git merge"
@@ -75,7 +75,7 @@ alias nginx-status="/etc/init.d/nginx status"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # java settings
-test -r ~/Code/java_code/bin/config.sh && source ~/Code/java_code/bin/config.sh
+# test -r ~/Code/java_code/bin/config.sh && source ~/Code/java_code/bin/config.sh
 
 # redis settings
 export PATH=$PATH:/opt/redis
@@ -86,3 +86,12 @@ export GOPATH=/opt/gocode/
 export GOROOT=/opt/go/
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add android development tools to path
+# Eclipe IDE
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse 
+# the android sdk
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
+
+# kronos django secret_key
+SECRET_KEY='4rhit4bwv8&log2@it#2=5+ytrcy_qs_-xc#_+96y4@c4c%cm+'

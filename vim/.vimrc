@@ -104,7 +104,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme base16-ocean
+  colorscheme Tomorrow-Night
 else
   set t_Co=256
   colorscheme wombat
@@ -222,3 +222,7 @@ endfunc
 
 " Vim slime settings
 let g:slime_target = "tmux"
+
+" Markdown to HTML
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+
