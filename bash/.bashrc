@@ -199,7 +199,7 @@ export EC2_HOME="/opt/ec2-api-tools/"
 
 # java settings
 test -r ~/Code/java_code/bin/config.sh && source ~/Code/java_code/bin/config.sh
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-i386/jre/"
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-i386/bin/"
 
 # go settings
 export PATH=$PATH:/opt/go/bin
@@ -208,6 +208,8 @@ export GOROOT=/opt/go/
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Add android development tools to path
+# Android Studio
+PATH=$PATH:$HOME/bin/android-studio/bin/studio.sh
 # Eclipse IDE
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse 
 # the android sdk

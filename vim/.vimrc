@@ -25,7 +25,7 @@ let g:Powerline_symbols = 'fancy'
 command! Q q
 command! W w
 " cdc = Change to Directory of Current file
-command CDC lcd %:p:h
+command! CDC lcd %:p:h
 
 "switch off the bell
 set visualbell t_vb=
@@ -50,6 +50,12 @@ nnoremap <F2> :NumbersToggle<CR>
 
 "mapping leader
 let mapleader = ','
+
+" emmet-vim bindings
+let g:user_emmet_expandabbr_key="<leader>em"
+let g:use_emmet_complete_tag=1
+let g:user_emmet_mode="a"
+let g:user_emmet_leader_key="<leader>e"
 
 "" ultisnips
 let g:UltiSnipsExpandTrigger="<leader>p"
@@ -104,7 +110,8 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme Tomorrow-Night
+  "colorscheme Tomorrow-Night
+  colorscheme base16-ocean
 else
   set t_Co=256
   colorscheme wombat
