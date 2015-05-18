@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/shashank/Code/js/angularjs/the basics'
-let g:netrw_dirhist_2='/home/shashank/Code/js/angularjs/new'
-let g:netrw_dirhist_3='/home/shashank/Code/nodejs'
-let g:netrw_dirhist_4='/home/shashank/Code/python/django_apps/rango'
-let g:netrw_dirhist_5='/home/shashank/Code/nodejs'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/shashank/Code/node/canvasico-server'
+let g:netrw_dirhist_2='/home/shashank/Code/node/Flit-Near-Dash'
+let g:netrw_dirhist_3='/home/shashank/Code/node/silverpay-backend'
+let g:netrw_dirhist_4='/home/shashank/Code/node/canvasico-server'

@@ -71,7 +71,7 @@ nnoremap <c-l> <c-w>l
 "folding settings
 set foldmethod=indent
 set foldnestmax=10
-set nofoldenable
+"set nofoldenable
 set foldlevel=1
 
 "editing
@@ -83,8 +83,8 @@ set number
 "" Formatting
 set textwidth=79                " lines longer than 79 columns will be broken
 set nowrap                      " dont wrap lines
-set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
-set softtabstop=4               " insert/delete four spaces when hitting TAB/Backspace
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set softtabstop=2               " insert/delete four spaces when hitting TAB/Backspace
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -102,7 +102,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Ubuntu\ Mono\ 11   " Anonymous Pro"
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -111,7 +111,7 @@ if has('gui_running')
   set guioptions-=l
   set guioptions-=m
   "colorscheme Tomorrow-Night
-  colorscheme base16-ocean
+  colorscheme gotham
 else
   set t_Co=256
   colorscheme wombat
