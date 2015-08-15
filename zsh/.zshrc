@@ -42,6 +42,8 @@ alias ipy="ipython"
 alias py="python"
 # python - django
 alias django="python manage.py"
+# Rust
+alias rust="rustc"
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -95,6 +97,3 @@ PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
 # the android sdk
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
-
-# kronos django secret_key
-SECRET_KEY='4rhit4bwv8&log2@it#2=5+ytrcy_qs_-xc#_+96y4@c4c%cm+'

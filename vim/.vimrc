@@ -111,10 +111,10 @@ if has('gui_running')
   set guioptions-=l
   set guioptions-=m
   "colorscheme Tomorrow-Night
-  colorscheme gotham
+  colorscheme seti "gotham
 else
   set t_Co=256
-  colorscheme wombat
+  colorscheme seti
 endif
 
 "" Commands
@@ -233,3 +233,17 @@ let g:slime_target = "tmux"
 " Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 
+" jshint validation
+nnoremap <leader><F1> :JSHint<CR>
+inoremap <leader><F1> <C-O>:JSHint<CR>
+vnoremap <leader><F1> :JSHint<CR>
+
+" show next jshint error
+nnoremap <leader><F2> :lnext<CR>
+inoremap <leader><F2> <C-O>:lnext<CR>
+vnoremap <leader><F2> :lnext<CR>
+
+" show previous jshint error
+nnoremap <leader><F3> :lprevious<CR>
+inoremap <leader><F3> <C-O>:lprevious<CR>
+vnoremap <leader><F3> :lprevious<CR>

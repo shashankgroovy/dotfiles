@@ -158,6 +158,7 @@ alias o="f -e xdg-open"  # quick opening files with xdg-open
 # More aliases
 alias py="python"
 alias ipy="ipython"
+alias rust="rustc"
 
 alias :q="exit"
 alias n="nautilus"
