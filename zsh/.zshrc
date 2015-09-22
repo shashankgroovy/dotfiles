@@ -66,12 +66,11 @@ alias gch="git checkout"
 alias gb="git branch"
 alias gcl="git clone"
 
-# nginx settings
-alias nginx-start="sudo /etc/init.d/nginx start"
-alias nginx-stop="sudo /etc/init.d/nginx stop"
-alias nginx-reload="sudo /etc/init.d/nginx reload"
-alias nginx-restart="sudo /etc/init.d/nginx restart"
-alias nginx-status="/etc/init.d/nginx status"
+# nginx
+alias nginx="sudo /etc/init.d/nginx"
+
+# apache
+alias apache="sudo /usr/local/apache2/bin/apachectl"
 
 ## Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -89,6 +88,7 @@ export GOPATH=/opt/gocode/
 export GOROOT=/opt/go/
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 # Add android development tools to path
 # Android Studio
 PATH=$PATH:$HOME/bin/android-studio/bin/studio.sh
@@ -97,3 +97,6 @@ PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
 # the android sdk
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
+
+# Add php/laravel to path
+export PATH="$HOME/.composer/vendor/bin:$PATH"

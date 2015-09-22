@@ -216,3 +216,6 @@ PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
 # the android sdk
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
+
+# add php/laravel to path
+export PATH="$HOME/.composer/vendor/bin:$PATH"

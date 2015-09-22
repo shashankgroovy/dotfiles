@@ -111,7 +111,7 @@ if has('gui_running')
   set guioptions-=l
   set guioptions-=m
   "colorscheme Tomorrow-Night
-  colorscheme seti "gotham
+  colorscheme gotham "seti
 else
   set t_Co=256
   colorscheme seti
@@ -247,3 +247,14 @@ vnoremap <leader><F2> :lnext<CR>
 nnoremap <leader><F3> :lprevious<CR>
 inoremap <leader><F3> <C-O>:lprevious<CR>
 vnoremap <leader><F3> :lprevious<CR>
+
+" php highlighting
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
