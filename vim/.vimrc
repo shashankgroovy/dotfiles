@@ -19,7 +19,7 @@ filetype plugin on
 
 "Powerline settings
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 "Bind :Q and :W to :q and :w respectively
 command! Q q
@@ -102,7 +102,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
+set guifont=Hack\ 10
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
