@@ -102,7 +102,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Hack\ 10
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -111,7 +111,7 @@ if has('gui_running')
   set guioptions-=l
   set guioptions-=m
   "colorscheme Tomorrow-Night
-  colorscheme gotham "seti
+  colorscheme seti "gotham
 else
   set t_Co=256
   colorscheme seti

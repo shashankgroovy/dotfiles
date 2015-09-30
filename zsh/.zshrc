@@ -18,8 +18,8 @@ alias n='nautilus'
 alias refresh="source ~/.zshrc"
 alias :q="exit"
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
-alias cya="cowsay -t 'Cya in a while' && sleep 3 && sudo pm-suspend"
-alias yawn="cowsay -b'knight is coming' && sleep 3 && sudo pm-hibernate"
+alias cya="cowsay -b'knight is coming' && sleep 3 && sudo pm-hibernate"
+alias yawn="cowsay -t 'Cya in a while' && sleep 3 && sudo pm-suspend"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -33,10 +33,6 @@ alias v='f -e vim'
 alias m='f -e mplayer'
 alias o='a -e xdg-open'
 
-# for sublime
-alias subl="sublime"
-alias nano="sublime"
-
 # python
 alias ipy="ipython"
 alias py="python"
@@ -44,6 +40,8 @@ alias py="python"
 alias django="python manage.py"
 # Rust
 alias rust="rustc"
+# nodejs
+alias node="nodejs"
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
@@ -52,7 +50,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # for git
 alias gitcls="git rm -r --cached ."
-#alias gpu="git push -u origin master"
 alias gi="git init"
 alias ga="git add"
 alias gc="git commit"
