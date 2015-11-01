@@ -2,6 +2,8 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+cd ~
+
 "Typo checks
 iabbrev teh the
 iabbrev adn and
@@ -9,6 +11,7 @@ iabbrev funciton function
 iabbrev functoin function
 iabbrev fucntion function
 
+set autoread
 set nocompatible
 set laststatus=2
 syntax enable

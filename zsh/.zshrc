@@ -49,7 +49,7 @@ export PROJECT_HOME=$HOME/Code
 source /usr/local/bin/virtualenvwrapper.sh
 
 # for git
-alias gitcls="git rm -r --cached ."
+alias gitcls="git rm -r --cached"
 alias gi="git init"
 alias ga="git add"
 alias gc="git commit"
