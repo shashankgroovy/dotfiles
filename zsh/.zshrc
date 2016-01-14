@@ -20,6 +20,7 @@ alias :q="exit"
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
 alias cya="cowsay -b'knight is coming' && sleep 3 && sudo pm-hibernate"
 alias yawn="cowsay -t 'Cya in a while' && sleep 3 && sudo pm-suspend"
+alias linux="cowsay -s 'We know you are on a linux machine'"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +98,9 @@ PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
 
 # Add php/laravel to path
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+export NVM_DIR="/home/shashank/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# node development
+export NODE_ENV=development
