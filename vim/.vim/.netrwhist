@@ -1,10 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/shashank/Code/chrome/soundcloud-chrome-extension'
-let g:netrw_dirhist_2='/home/shashank/Code/chrome/play_soundcloud'
-let g:netrw_dirhist_3='/usr/local/apache2/htdocs'
-let g:netrw_dirhist_4='/home/shashank/Code/php/recruiter'
-let g:netrw_dirhist_5='/home/shashank/Code/php/laravel'
-let g:netrw_dirhist_6='/home/shashank/Code/musejam-app/.git'
-let g:netrw_dirhist_7='/etc/nginx/sites-available'
-let g:netrw_dirhist_8='/home/shashank/Code/musejam/musejam-app'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/shashank/musejam/musejam-website'
+let g:netrw_dirhist_2='/home/shashank'
+let g:netrw_dirhist_3='/home/shashank/musejam/musejam-website'

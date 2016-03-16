@@ -2,26 +2,6 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-"Use Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
 "Typo checks
 iabbrev teh the
 iabbrev adn and
@@ -66,11 +46,14 @@ nnoremap <a-x> <c-a>
 nnoremap H ^
 nnoremap L $
 
-"mapping for numberstoggle
+"mapping for numbers toggle
 nnoremap <F2> :NumbersToggle<CR>
 
 "mapping leader
 let mapleader = ','
+
+"toggle spell check
+nmap <silent> <leader>s :set spell!<CR>
 
 " emmet-vim bindings
 let g:user_emmet_expandabbr_key="<leader>em"
@@ -104,8 +87,8 @@ set number
 "" Formatting
 set textwidth=79                " lines longer than 79 columns will be broken
 set nowrap                      " dont wrap lines
-set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
-set softtabstop=4               " insert/delete four spaces when hitting TAB/Backspace
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set softtabstop=2               " insert/delete four spaces when hitting TAB/Backspace
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -123,7 +106,7 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 11
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -131,10 +114,10 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme Tomorrow-Night
+  colorscheme seti "Tomorrow-Night
 else
   set t_Co=256
-  colorscheme Tomorrow-Night
+  colorscheme seti 
 endif
 
 "" Commands
@@ -196,9 +179,6 @@ endfunction " }}}
 
 nnoremap <silent> <leader><tab> :ScratchToggle<cr>
 
-"buffer mappings
-nnoremap <F5> :buffers<CR>:buffer<Space>
-
 "pressing Tab on the command line will show a menu to complete buffer and file names
 set wildchar=<Tab> wildmenu wildmode=full
 
@@ -211,6 +191,7 @@ nnoremap <F10> :b <C-Z>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:clear_cache_on_exit = 0
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-T> :call <SID>SynStack()<CR>

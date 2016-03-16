@@ -18,7 +18,7 @@ alias n='nautilus'
 alias refresh="source ~/.zshrc"
 alias :q="exit"
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
-alias cya="cowsay -b'knight is coming' && sleep 3 && sudo pm-hibernate"
+alias cya="cowsay -b 'knight is coming' && sleep 3 && sudo pm-hibernate"
 alias yawn="cowsay -t 'Cya in a while' && sleep 3 && sudo pm-suspend"
 alias linux="cowsay -s 'We know you are on a linux machine'"
 
@@ -104,3 +104,8 @@ export NVM_DIR="/home/shashank/.nvm"
 
 # node development
 export NODE_ENV=development
+
+# ruby
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

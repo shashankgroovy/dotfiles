@@ -219,3 +219,8 @@ PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
 
 # add php/laravel to path
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# ruby
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
