@@ -109,3 +109,6 @@ export NODE_ENV=development
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# plugins
+plugins=(zsh-wakatime)

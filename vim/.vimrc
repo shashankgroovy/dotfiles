@@ -87,8 +87,8 @@ set number
 "" Formatting
 set textwidth=79                " lines longer than 79 columns will be broken
 set nowrap                      " dont wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
-set softtabstop=2               " insert/delete four spaces when hitting TAB/Backspace
+set tabstop=4 shiftwidth=4      " a tab is four spaces (or set this to 2)
+set softtabstop=4               " insert/delete four spaces when hitting TAB/Backspace
 set shiftround                  " round indent to multiple of 'shiftwidth'
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
@@ -114,7 +114,7 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme seti "Tomorrow-Night
+  colorscheme gotham
 else
   set t_Co=256
   colorscheme seti 
@@ -259,3 +259,22 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" better tab control
+nnoremap tn :tabnew<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-S-tab> :tabprevious<CR>
+
+" airline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.branch = ''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
