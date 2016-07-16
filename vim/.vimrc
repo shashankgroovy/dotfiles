@@ -41,7 +41,7 @@ nnoremap <space> za
 "nnoremap % v%
 
 " decrement integer
-nnoremap <a-x> <c-a> 
+nnoremap <a-x> <c-a>
 "better use of H and L
 nnoremap H ^
 nnoremap L $
@@ -81,7 +81,7 @@ set foldlevel=1
 "editing
 set ruler                       " show the co-ordinates of the cursor
 set cursorline                  " highlight the line with the cursor
-set scrolloff=3                 " provide some context for editing 
+set scrolloff=3                 " provide some context for editing
 set number
 
 "" Formatting
@@ -98,15 +98,16 @@ set autoindent                  " align the new line indent with the previous li
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
-set smartcase                   " except when you tell vim 
+set smartcase                   " except when you tell vim
 set gdefault                    " g flag is set on default
 
 " clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr> 
+:nnoremap <CR> :nohlsearch<cr>
 
 "" Look
 set background=dark
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+"set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+set guifont=Menlo\ 10
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -117,7 +118,7 @@ if has('gui_running')
   colorscheme gotham
 else
   set t_Co=256
-  colorscheme seti 
+  colorscheme seti
 endif
 
 "" Commands
@@ -147,7 +148,7 @@ nnoremap <Leader><Leader>s :source $MYVIMRC
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
 nnoremap <Leader><Leader>v :e $MYVIMRC
 
-"NERD Tree 
+"NERD Tree
 let NERDTreeShowBookmarks  = 1
 let NERDChristmasTree = 1
 let NERDTreeWinPos = "left"
@@ -269,12 +270,13 @@ nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-S-tab> :tabprevious<CR>
 
 " airline
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_theme='base16'
+let g:airline_left_sep = ' ' "
+let g:airline_right_sep = ' ' "
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.branch = ''
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ' ' "
+let g:airline#extensions#tabline#left_alt_sep = ' ' "
+let g:airline#extensions#tabline#right_sep = ' ' "
+let g:airline#extensions#tabline#right_alt_sep = ' ' "

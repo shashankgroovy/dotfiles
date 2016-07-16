@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 setopt auto_cd
+# to have fish like quick suggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # looks
 ZSH_THEME="robbyrussell"
@@ -91,7 +93,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Android Studio
 PATH=$PATH:$HOME/bin/android-studio/bin/studio.sh
 # Eclipe IDE
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse 
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
 # the android sdk
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
