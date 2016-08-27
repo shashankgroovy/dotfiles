@@ -5,7 +5,7 @@ setopt auto_cd
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # looks
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 autoload -U colors && colors
 setopt correct
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
