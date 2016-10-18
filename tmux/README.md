@@ -1,28 +1,28 @@
 Tmux
 ====
 
-I usually don't use tmux that often but sometimes I do.
-I usually like to work with sessions. 
+I usually don't use tmux that often but sometimes I do and its fun!
 
 Tmux key bindings
 ---------------------
 
 Here are some of the tmux key bindings I frequently use:
-*(I use the default trigger key)*
+*(I changed the default trigger key to M-i)*
 
 ```
 1.  tmux attach session_name
-2.  C-b %                          -- Vertical split pane
-3.  C-b *                          -- Horizoantal split pane
-4.  C-b [Up/down/left/right]       -- Movement Pane
-5.  C-b ;                          -- Last active pane
-6.  C-b  C-o                       -- Rotate pane
-7.  C-b x                          -- Close pane
-8.  C-b M-[Up/down/left/right]     -- Resize pane
-9.  C-b c                          -- Create window
-10. C-b &                          -- Kill window
-11. C-b 1,2,3 ... 9                -- Switch window
-12. C-b p,n                        -- Previous/next window
+2.  M-v                            -- Vertical split pane
+3.  M-s                            -- Horizoantal split pane
+4.  M-[h/j/k/l]                    -- Movement Pane
+5.  M-i ;                          -- Last active pane
+6.  M-i C-o                        -- Rotate pane
+7.  M-i x                          -- Close pane
+8.  M-i r                          -- Refresh tmux
+9.  M-i c                          -- Create window
+4.  M-[left/right]                 -- Movement window
+10. M-i &                          -- Kill window
+11. M-i 1,2,3 ... 9                -- Switch window
+12. M-i p,n                        -- Previous/next window
 ```
 
 That's pretty much all of it! Phew!
