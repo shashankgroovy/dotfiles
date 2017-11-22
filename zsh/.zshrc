@@ -38,8 +38,8 @@ alias o='a -e xdg-open'
 
 # python
 alias ipy="ipython"
-alias py="python"
-# python - django
+alias py="python3.6"
+alias python3="python3.6"
 alias django="python manage.py"
 # Rust
 alias rust="rustc"
@@ -65,6 +65,7 @@ alias gst="git status"
 alias gch="git checkout"
 alias gb="git branch"
 alias gcl="git clone"
+alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 # nginx
 alias nginx="sudo /etc/init.d/nginx"
@@ -72,31 +73,15 @@ alias nginx="sudo /etc/init.d/nginx"
 # apache
 alias apache="sudo /usr/local/apache2/bin/apachectl"
 
+# apache-activemq
+export PATH=$PATH:/opt/apache-activemq/bin/
+
 ## Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # java settings
 # test -r ~/Code/java_code/bin/config.sh && source ~/Code/java_code/bin/config.sh
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-i386/bin/"
-
-# redis settings
-export PATH=$PATH:/opt/redis
-
-# go settings
-export PATH=$PATH:/opt/go/bin
-export GOPATH=/opt/gocode/
-export GOROOT=/opt/go/
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# Add android development tools to path
-# Android Studio
-PATH=$PATH:$HOME/bin/android-studio/bin/studio.sh
-# Eclipe IDE
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
-# the android sdk
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
 
 # Add php/laravel to path
 export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -114,3 +99,6 @@ eval "$(rbenv init -)"
 
 # plugins
 plugins=(zsh-wakatime)
+
+# activate autoenv
+source `which activate.sh`

@@ -62,9 +62,9 @@ let g:user_emmet_mode="a"
 let g:user_emmet_leader_key="<leader>e"
 
 "" ultisnips
-let g:UltiSnipsExpandTrigger="<leader>p"
-let g:UltiSnipsJumpForwardTrigger="<Down>"
-let g:UltiSnipsListSnippets="<Right>"
+"let g:UltiSnipsExpandTrigger="<leader>p"
+"let g:UltiSnipsJumpForwardTrigger="<Down>"
+"let g:UltiSnipsListSnippets="<Right>"
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -107,7 +107,7 @@ set gdefault                    " g flag is set on default
 "" Look
 set background=dark
 "set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
-set guifont=Menlo\ 10
+set guifont=Menlo\ 9
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -115,20 +115,20 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme gotham
+  colorscheme Tomorrow-Night
 else
   set t_Co=256
-  colorscheme seti
+  colorscheme Tomorrow-Night
 endif
 
 "" Commands
 source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
 behave mswin                    "mouse behavior like windows
 
-function Writing()
-  set wrap
-  set linebreak
-endfunction
+"function Writing()
+"  set wrap
+"  set linebreak
+"endfunction
 
 "read .ru files as rb
 au BufNewFile,BufRead *.ru set filetype=ruby
@@ -208,8 +208,8 @@ let g:user_zen_expandabbr_key = '<leader>o'
 let g:use_zen_complete_tag = 1
 
 "" supertab bindings for snipmate goodness
-"" let g:SuperTabMappingForward = '<S-space>'
-"" let g:SuperTabMappingBackward = '<c-S-space>'
+let g:SuperTabMappingForward = '<S-space>'
+let g:SuperTabMappingBackward = '<c-S-space>'
 
 "" less to css
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
@@ -219,6 +219,7 @@ let python_highlight_all=1
 
 "python indentation settings
 autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
+au FileType python setlocal formatprg=autopep8\ -
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-R> :call <SID>SynStack()<CR>
@@ -230,7 +231,7 @@ function! <SID>SynStack()
 endfunc
 
 " Vim slime settings
-let g:slime_target = "tmux"
+"let g:slime_target = "tmux"
 
 " Markdown to HTML
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
@@ -273,10 +274,14 @@ nnoremap <C-S-tab> :tabprevious<CR>
 let g:airline_theme='base16'
 let g:airline_left_sep = ' ' "
 let g:airline_right_sep = ' ' "
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.branch = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' ' "
 let g:airline#extensions#tabline#left_alt_sep = ' ' "
 let g:airline#extensions#tabline#right_sep = ' ' "
 let g:airline#extensions#tabline#right_alt_sep = ' ' "
+
+" javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1

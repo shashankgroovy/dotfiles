@@ -40,12 +40,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -53,11 +53,11 @@ fi
 # use the following colors in the prompt like this :
 # echo -e "${red}yippiee {blue}ki {green}yay"
 
-# No_color    '\e[0m'        
-# Black       '\e[0;30m'       ##     Red         '\e[0;31m'      
-# Yellow      '\e[0;32m'       ##     Green       '\e[0;33m'   
-# Blue        '\e[0;34m'       ##     Cyan        '\e[0;35m'   
-# Purple      '\e[0;36m'       ##     White       '\e[0;37m' 
+# No_color    '\e[0m'
+# Black       '\e[0;30m'       ##     Red         '\e[0;31m'
+# Yellow      '\e[0;32m'       ##     Green       '\e[0;33m'
+# Blue        '\e[0;34m'       ##     Cyan        '\e[0;35m'
+# Purple      '\e[0;36m'       ##     White       '\e[0;37m'
 
 # mercuial prompt information
 hg_ps1() {
@@ -66,11 +66,11 @@ hg_ps1() {
 
 hg_dirty() {
     hg status --no-color 2> /dev/null \
-    | awk '$1 == "?" { unknown = 1 } 
+    | awk '$1 == "?" { unknown = 1 }
            $1 != "?" { changed = 1 }
            END {
              if (changed) printf "!"
-             else if (unknown) printf "?" 
+             else if (unknown) printf "?"
            }'
 }
 
@@ -181,6 +181,7 @@ alias gr="git reset"
 alias gst="git status"
 alias gch="git checkout"
 alias gb="git branch"
+alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 
 ## virtualenv settings
@@ -212,7 +213,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # Android Studio
 PATH=$PATH:$HOME/bin/android-studio/bin/studio.sh
 # Eclipse IDE
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse 
+PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
 # the android sdk
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
 PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
