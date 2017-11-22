@@ -9,12 +9,15 @@ iabbrev funciton function
 iabbrev functoin function
 iabbrev fucntion function
 
+"Enable mouse mode in all cases, useful in tmux
+set mouse=a
 set autoread
 set nocompatible
 set laststatus=2
 syntax enable
 set modelines=0
 set encoding=utf-8
+filetype on
 filetype plugin indent on
 filetype plugin on
 
@@ -85,7 +88,7 @@ set scrolloff=3                 " provide some context for editing
 set number
 
 "" Formatting
-set textwidth=79                " lines longer than 79 columns will be broken
+"set textwidth=79                " lines longer than 79 columns will be broken
 set nowrap                      " dont wrap lines
 set tabstop=4 shiftwidth=4      " a tab is four spaces (or set this to 2)
 set softtabstop=4               " insert/delete four spaces when hitting TAB/Backspace
@@ -106,7 +109,6 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-"set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 set guifont=Menlo\ 9
 if has('gui_running')
   set guioptions-=T
@@ -126,8 +128,8 @@ source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
 behave mswin                    "mouse behavior like windows
 
 "function Writing()
-"  set wrap
-"  set linebreak
+  "set wrap
+  "set linebreak
 "endfunction
 
 "read .ru files as rb
@@ -271,9 +273,7 @@ nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-S-tab> :tabprevious<CR>
 
 " airline
-let g:airline_theme='base16'
-let g:airline_left_sep = ' ' "
-let g:airline_right_sep = ' ' "
+let g:airline_theme='tomorrow'
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.branch = ''
 let g:airline#extensions#tabline#enabled = 1
@@ -282,6 +282,32 @@ let g:airline#extensions#tabline#left_alt_sep = ' ' "
 let g:airline#extensions#tabline#right_sep = ' ' "
 let g:airline#extensions#tabline#right_alt_sep = ' ' "
 
-" javascript
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
+" Vim-plug
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" A new vim splash screen
+Plug 'mhinz/vim-startify'
+
+" Initialize plugin system
+call plug#end()
+
+" JS - Beautify
+map <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
