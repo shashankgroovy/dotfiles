@@ -1,6 +1,5 @@
 "Use Pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
 
 "Typo checks
 iabbrev teh the
@@ -109,7 +108,6 @@ set gdefault                    " g flag is set on default
 
 "" Look
 set background=dark
-set guifont=Menlo\ 9
 if has('gui_running')
   set guioptions-=T
   set guioptions-=R
@@ -117,10 +115,10 @@ if has('gui_running')
   set guioptions-=L
   set guioptions-=l
   set guioptions-=m
-  colorscheme Tomorrow-Night
+  colorscheme OceanicNext
 else
   set t_Co=256
-  colorscheme Tomorrow-Night
+  colorscheme CodeFactoryv3
 endif
 
 "" Commands
@@ -221,7 +219,6 @@ let python_highlight_all=1
 
 "python indentation settings
 autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
-au FileType python setlocal formatprg=autopep8\ -
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-R> :call <SID>SynStack()<CR>
@@ -282,32 +279,8 @@ let g:airline#extensions#tabline#left_alt_sep = ' ' "
 let g:airline#extensions#tabline#right_sep = ' ' "
 let g:airline#extensions#tabline#right_alt_sep = ' ' "
 
-" Vim-plug
-" Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" A new vim splash screen
-Plug 'mhinz/vim-startify'
-
-" Initialize plugin system
-call plug#end()
-
-" JS - Beautify
-map <c-f> :call JsBeautify()<cr>
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" use The Silver Searcher for grepping
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif

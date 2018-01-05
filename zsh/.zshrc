@@ -12,9 +12,9 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes
 export TERM='xterm-256color'
 
 # aliases
-alias zshconfig="gvim ~/.zshrc"
-alias ohmyzsh="gvim ~/.oh-my-zsh"
-alias tmuxconfig="gvim ~/.tmux.conf"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias tmuxconfig="vim ~/.tmux.conf"
 alias dotfiles="cd ~/.dotfiles"
 alias n='nautilus'
 alias refresh="source ~/.zshrc"
@@ -26,9 +26,6 @@ alias linux="cowsay -s 'We know you are on a linux machine'"
 
 source $ZSH/oh-my-zsh.sh
 
-# PATH
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/Code/julia:/Code/get_shit_done:
-
 #for fasd
 eval "$(fasd --init auto)"
 eval "$(fasd --init posix-alias zsh-hook)"
@@ -38,18 +35,10 @@ alias o='a -e xdg-open'
 
 # python
 alias ipy="ipython"
-alias py="python3.6"
-alias python3="python3.6"
+alias py="python"
+alias py3="python3"
 alias django="python manage.py"
-# Rust
 alias rust="rustc"
-# nodejs
-alias node="nodejs"
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Code
-source /usr/local/bin/virtualenvwrapper.sh
 
 # for git
 alias gitcls="git rm -r --cached"
@@ -70,35 +59,11 @@ alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 # nginx
 alias nginx="sudo /etc/init.d/nginx"
 
-# apache
-alias apache="sudo /usr/local/apache2/bin/apachectl"
+# direnv for environment variables
+eval "$(direnv hook zsh)"
 
-# apache-activemq
-export PATH=$PATH:/opt/apache-activemq/bin/
-
-## Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# java settings
-# test -r ~/Code/java_code/bin/config.sh && source ~/Code/java_code/bin/config.sh
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-i386/bin/"
-
-# Add php/laravel to path
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-export NVM_DIR="/home/shashank/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# node development
-export NODE_ENV=development
-
-# ruby
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
+# rbenv
 eval "$(rbenv init -)"
 
 # plugins
 plugins=(zsh-wakatime)
-
-# activate autoenv
-source `which activate.sh`

@@ -59,37 +59,10 @@ fi
 # Blue        '\e[0;34m'       ##     Cyan        '\e[0;35m'
 # Purple      '\e[0;36m'       ##     White       '\e[0;37m'
 
-# mercuial prompt information
-hg_ps1() {
-    hg prompt "{{branch}}{ at {bookmark}} {status}" 2> /dev/null
-}
-
-hg_dirty() {
-    hg status --no-color 2> /dev/null \
-    | awk '$1 == "?" { unknown = 1 }
-           $1 != "?" { changed = 1 }
-           END {
-             if (changed) printf "!"
-             else if (unknown) printf "?"
-           }'
-}
-
-hg_branch() {
-    hg branch 2> /dev/null | \
-        awk '{ printf "\033[1;33m hg➜ \033[01;37m" $1 }'
-    hg bookmarks 2> /dev/null | \
-        awk '/\*/ { printf "\033[37;0m at \033[33;40m" $2 }'
-}
-
-
 # use ➜ in place of $ to change prompt end
 if [ "$color_prompt" = yes ]; then
-    # use the following with hg-prompt
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h \[\e[1;36m\]\w\[\e[01;37m\] $(hg_ps1) \[\e[0;91m\]$(hg_dirty) \[\e[0m\]'
-
-    # without hg-prompt
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h \[\e[1;36m\]\w\[\e[01;37m\] $(hg_branch) \[\e[0;91m\]$(hg_dirty) \[\e[0m\]'
     # here \033 == \e which is an ASCII escape character
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\[\033[01;35m\]\h \[\e[1;36m\]\w\[\e[01;37m\] '
 
 else
     PS1='${debian_chroot:+($debian_chroot)}\n\u at \h in \w $ '
@@ -105,19 +78,12 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
 
 # some more ls aliases
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -185,43 +151,21 @@ alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 
 ## virtualenv settings
-export WORKON_HOME="$HOME/.virtualenvs"
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME="$HOME/.virtualenvs"
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Code
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Code
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 
 # aws EC2 CLI toolkit
-export EC2_HOME="/opt/ec2-api-tools/"
-
-# java settings
-test -r ~/Code/java_code/bin/config.sh && source ~/Code/java_code/bin/config.sh
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-i386/bin/"
+# export EC2_HOME="/opt/ec2-api-tools/"
 
 # go settings
-export PATH=$PATH:/opt/go/bin
-export GOPATH=/opt/gocode/
-export GOROOT=/opt/go/
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-# Add android development tools to path
-# Android Studio
-PATH=$PATH:$HOME/bin/android-studio/bin/studio.sh
-# Eclipse IDE
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse
-# the android sdk
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/tools
-PATH=$PATH:$HOME/build/adt-bundle-linux-x86-20140321/eclipse/sdk/platform-tools
-
-# add php/laravel to path
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
-# ruby
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH=$PATH:/opt/go/bin
+# export GOPATH=/opt/gocode/
+# export GOROOT=/opt/go/
