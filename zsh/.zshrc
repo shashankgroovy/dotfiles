@@ -1,8 +1,30 @@
+#
+#      _                 _           __  _       _    __ _ _           
+#  ___| |__   __ _ _ __ | | _____   / /_| | ___ | |_ / _(_) | ___  ___ 
+# / __| '_ \ / _` | '_ \| |/ / __| / / _` |/ _ \| __| |_| | |/ _ \/ __|
+# \__ \ | | | (_| | | | |   <\__ \/ / (_| | (_) | |_|  _| | |  __/\__ \
+# |___/_| |_|\__,_|_| |_|_|\_\___/_/ \__,_|\___/ \__|_| |_|_|\___||___/
+#
+#
+# The zsh configuration, part of my dotfiles setup.
+# 
+# Copyright 2018 © Shashank Srivastav
+#
+# More info at:
+# https://github.com/shashankgroovy/dotfiles
+#
+
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 setopt auto_cd
 # to have fish like quick suggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# source zsh aliases
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+fi
 
 # looks
 ZSH_THEME="avit"
@@ -15,6 +37,7 @@ export TERM='xterm-256color'
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmuxconfig="vim ~/.tmux.conf"
+alias tmuxcommands="head -n 24 ~/.tmux.conf"
 alias dotfiles="cd ~/.dotfiles"
 alias n='nautilus'
 alias refresh="source ~/.zshrc"
@@ -54,6 +77,8 @@ alias gst="git status"
 alias gch="git checkout"
 alias gb="git branch"
 alias gcl="git clone"
+alias gs="git stash"
+alias gsp="git stash pop"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 # nginx
@@ -67,3 +92,4 @@ eval "$(rbenv init -)"
 
 # plugins
 plugins=(zsh-wakatime)
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'

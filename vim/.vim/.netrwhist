@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/shashank/musejam/musejam-website'
-let g:netrw_dirhist_2='/home/shashank'
-let g:netrw_dirhist_3='/home/shashank/musejam/musejam-website'
-let g:netrw_dirhist_4='/home/shashank/Public/Blog/rksriv.github.io'
-let g:netrw_dirhist_5='/home/shashank/Code/python/cli_waka'
-let g:netrw_dirhist_6='/home/shashank/.virtualenvs/lokafy/lib/python2.7/site-packages/easy_thumbnails'
-let g:netrw_dirhist_7='/home/shashank/Code/limetray/processing-service'
