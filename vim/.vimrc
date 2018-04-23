@@ -105,11 +105,13 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme space-vim-dark
+        colorscheme base16-atelier-cave
     else
         set t_Co=256
         colorscheme OceanicNext
     endif
+    let g:space_vim_dark_background = 233
+
 
     " Customizing the insert menu
     " http://goo.gl/UqCSV
@@ -178,7 +180,7 @@
     " Use Pathogen
     execute pathogen#infect()
 
-    "Use Vim-plug
+    " Use Vim-plug
     call plug#begin()
 
         Plug 'chriskempson/base16-vim'
@@ -191,6 +193,7 @@
         Plug 'mattn/emmet-vim'
         Plug 'mbbill/undotree'
         Plug 'mileszs/ack.vim'
+        Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
         Plug 'scrooloose/syntastic'
         Plug 'sirver/ultisnips'
@@ -204,6 +207,7 @@
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         Plug 'vim-syntastic/syntastic'
+        Plug 'wakatime/vim-wakatime'
 
     call plug#end()
 
@@ -235,10 +239,10 @@
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
     " Emmet-vim bindings
-    let g:use_emmet_complete_tag=1
-    let g:user_emmet_expandabbr_key="<leader>em"
-    let g:user_emmet_leader_key="<leader>e"
-    let g:user_emmet_mode="a"
+    let g:use_emmet_complete_tag = 1
+    let g:user_emmet_expandabbr_key = "<leader>em"
+    let g:user_emmet_leader_key = "<leader>e"
+    let g:user_emmet_mode = "a"
 
     " NERD Tree
     map <leader>n :NERDTreeToggle <cr>
@@ -257,14 +261,14 @@
     "let g:slime_target = "tmux"
 
     " UltiSnips
-    let g:UltiSnipsExpandTrigger="<M-space>"
-    let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    let g:UltiSnipsExpandTrigger = "<M-space>"
+    let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
     "let g:UltiSnipsExpandTrigger="<leader>p"
     "let g:UltiSnipsJumpForwardTrigger="<Down>"
     "let g:UltiSnipsJumpBackwardTrigger="<UP>"
-    let g:UltiSnipsListSnippets="<Right>"
+    let g:UltiSnipsListSnippets = "<Right>"
 
     " YouCompleteMe
     let g:ycm_python_binary_path = '/usr/local/bin/python3'
@@ -282,7 +286,7 @@
             unlet w:is_scratch_window
             exec "q"
         else
-            exec "normal! :Sscratch\<cr>\<C-W>J:resize 13\<cr>"
+            exec "normal! :Scratch\<cr>\<C-W>J:resize 13\<cr>"
             let w:is_scratch_window = 1
         endif
     endfunction
