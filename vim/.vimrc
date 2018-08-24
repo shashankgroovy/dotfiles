@@ -105,7 +105,7 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme base16-atelier-cave
+        colorscheme base16-atelier-forest
     else
         set t_Co=256
         colorscheme OceanicNext
@@ -124,7 +124,7 @@
 
 " Key (re)mapping
 
-    "mapping leader
+    " Mapping leader
     let mapleader = ','
 
     " Better mapping for Esc
@@ -152,6 +152,9 @@
 
     " Clear the search buffer when hitting return
     nnoremap <CR> :nohlsearch<cr>
+
+    " Format json
+    nnoremap gr :%!python -m json.tool <CR> :set ft=json <CR>
 
     " Opens $MYVIMRC for editing vimrc in a jiffy
     nnoremap <Leader><Leader>v :e $MYVIMRC
@@ -196,7 +199,6 @@
         Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
         Plug 'scrooloose/syntastic'
-        Plug 'sirver/ultisnips'
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
@@ -261,14 +263,16 @@
     "let g:slime_target = "tmux"
 
     " UltiSnips
-    let g:UltiSnipsExpandTrigger = "<M-space>"
-    let g:UltiSnipsJumpForwardTrigger = "<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+    if has('gui_running')
+      " Load it only in macvim, fucks up in terminal
+      " let g:UltiSnipsExpandTrigger = "<M-space>"
+      " let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+      " let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
-    "let g:UltiSnipsExpandTrigger="<leader>p"
-    "let g:UltiSnipsJumpForwardTrigger="<Down>"
-    "let g:UltiSnipsJumpBackwardTrigger="<UP>"
-    let g:UltiSnipsListSnippets = "<Right>"
+      "let g:UltiSnipsExpandTrigger="<leader>p"
+      "let g:UltiSnipsJumpForwardTrigger="<Down>"
+      "let g:UltiSnipsJumpBackwardTrigger="<UP>"
+    endif
 
     " YouCompleteMe
     let g:ycm_python_binary_path = '/usr/local/bin/python3'
