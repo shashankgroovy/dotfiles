@@ -96,7 +96,7 @@
 
     " Look
     set background=dark
-    set guifont=Fira\ Code:h12
+    set guifont=Fira\ Code:h10
 
     if has('gui_running')
         set guioptions-=T
@@ -105,10 +105,10 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme base16-atelier-forest
+        colorscheme afterglow
     else
         set t_Co=256
-        colorscheme OceanicNext
+        colorscheme afterglow
     endif
     let g:space_vim_dark_background = 233
 
@@ -165,6 +165,8 @@
     " Source ~/.gvimrc for macvim
     nnoremap <Leader><Leader>g :source ~/.gvimrc
 
+    " Toggle Tagbar
+    nmap <Leader><Leader>c :TagbarToggle<CR>
 
 " Searching
 
@@ -190,15 +192,18 @@
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'easymotion/vim-easymotion'
         Plug 'ervandew/supertab'
+        Plug 'fatih/vim-go'
         Plug 'honza/vim-snippets'
         Plug 'jiangmiao/auto-pairs'
         "Plug 'klen/python-mode'
+        Plug 'majutsushi/tagbar'
         Plug 'mattn/emmet-vim'
         Plug 'mbbill/undotree'
         Plug 'mileszs/ack.vim'
         Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
         Plug 'scrooloose/syntastic'
+        Plug 'sheerun/vim-polyglot'
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
@@ -220,6 +225,7 @@
     let g:airline_theme='tomorrow'
     let g:airline#extensions#tabline#enabled = 1
     if has('gui_running')
+        let g:airline_symbols = {}
         let g:airline_symbols.readonly = ''
         let g:airline_symbols.branch = ''
         let g:airline_left_alt_sep = ''
@@ -353,3 +359,9 @@
     " Indentation settings
     autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
     autocmd Bufread *.js setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
+
+    " Golang's vim-go settings
+    let g:go_fmt_command = "goimports"
+    let g:go_highlight_build_constraints = 1
+    let g:go_highlight_function_calls = 1
+    let g:go_auto_type_info = 1
