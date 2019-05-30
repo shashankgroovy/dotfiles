@@ -1,6 +1,6 @@
 ```
-     _                 _           __  _       _    __ _ _           
- ___| |__   __ _ _ __ | | _____   / /_| | ___ | |_ / _(_) | ___  ___ 
+     _                 _           __  _       _    __ _ _
+ ___| |__   __ _ _ __ | | _____   / /_| | ___ | |_ / _(_) | ___  ___
 / __| '_ \ / _` | '_ \| |/ / __| / / _` |/ _ \| __| |_| | |/ _ \/ __|
 \__ \ | | | (_| | | | |   <\__ \/ / (_| | (_) | |_|  _| | |  __/\__ \
 |___/_| |_|\__,_|_| |_|_|\_\___/_/ \__,_|\___/ \__|_| |_|_|\___||___/
@@ -15,18 +15,11 @@ Contains the configurations for the following:
 2. vim              -- Vim you lovely motherf**ker.
 3. zsh              -- Damn! right. Oh my Zsh!
 4. tmux             -- Terminal multiplexer
+5. i3               -- The best window manager ever!
+6. kitty            -- Cleanest terminal there is.
+7. rofi             -- Search in beauty.
 ```
 
-### Todo
-> Pick a 3 letter username >:[
+![scrot](scrot.png)
 
-* Add mercurial configs
-* Add weechat configs
-* Add cmus configs
-* Update the bin with `fasd`, `figlet`, `friendly find`.
-* Make an auto install `shell script` to do all this ugly work. >:(
-
-### Screenshots
-> Look inside each of the folders to find the respective screenshots.
-
-Time to work! :)
+Let's get started!
