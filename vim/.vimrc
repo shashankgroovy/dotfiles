@@ -96,7 +96,7 @@
 
     " Look
     set background=dark
-    set guifont=Fira\ Code:h10
+    set guifont=PragmataPro:h13 " Fira\ Code:h12 Monoid:h13
 
     if has('gui_running')
         set guioptions-=T
@@ -105,7 +105,7 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme afterglow
+        colorscheme night-owl "PaperColor
     else
         set t_Co=256
         colorscheme afterglow
@@ -168,6 +168,10 @@
     " Toggle Tagbar
     nmap <Leader><Leader>c :TagbarToggle<CR>
 
+    " Toggle UndoTree
+    nmap <Leader>u :UndotreeToggle<CR>
+
+
 " Searching
 
     " ACK
@@ -192,10 +196,11 @@
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'easymotion/vim-easymotion'
         Plug 'ervandew/supertab'
-        Plug 'fatih/vim-go'
+        Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+        Plug 'haishanh/night-owl.vim'
         Plug 'honza/vim-snippets'
-        Plug 'jiangmiao/auto-pairs'
         "Plug 'klen/python-mode'
+        Plug 'jiangmiao/auto-pairs'
         Plug 'majutsushi/tagbar'
         Plug 'mattn/emmet-vim'
         Plug 'mbbill/undotree'
@@ -278,10 +283,10 @@
       "let g:UltiSnipsExpandTrigger="<leader>p"
       "let g:UltiSnipsJumpForwardTrigger="<Down>"
       "let g:UltiSnipsJumpBackwardTrigger="<UP>"
-    endif
 
-    " YouCompleteMe
-    let g:ycm_python_binary_path = '/usr/local/bin/python3'
+      " YouCompleteMe
+      let g:ycm_python_binary_path = '/usr/local/bin/python3'
+    endif
 
     " Zencoding bindings
     let g:use_zen_complete_tag = 1
@@ -361,6 +366,7 @@
     autocmd Bufread *.js setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
 
     " Golang's vim-go settings
+    let g:go_bin_path = $HOME."/go/bin"
     let g:go_fmt_command = "goimports"
     let g:go_highlight_build_constraints = 1
     let g:go_highlight_function_calls = 1
