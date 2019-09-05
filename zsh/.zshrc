@@ -93,20 +93,11 @@ source /usr/bin/virtualenvwrapper.sh
 
 # plugins
 plugins=(zsh-wakatime archlinux)
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Android for react native
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/emulator
-
-# redis-server /usr/local/etc/redis.conf
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
