@@ -1,6 +1,6 @@
 # skip tracking the vim swap files
 *.swp
 *.pyc
-.vim/plugged/
+vim/.vim/plugged/
 
 # everything else looks clean :)
