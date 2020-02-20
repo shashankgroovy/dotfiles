@@ -22,7 +22,7 @@ ZSH=$HOME/.oh-my-zsh
 
 setopt auto_cd
 # to have fish like quick suggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+plugins=(zsh-autosuggestions)
 
 # source zsh aliases
 if [ -f ~/.zsh_aliases ]; then
@@ -60,7 +60,7 @@ alias m='f -e mplayer'
 alias o='a -e xdg-open'
 
 # python
-alias ipy="ipython"
+alias ipy="ipython3"
 alias py="python2"
 alias py3="python3"
 alias rust="rustc"
@@ -82,18 +82,22 @@ alias gcl="git clone"
 alias gs="git stash"
 alias gsp="git stash pop"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
+alias brewq='HOMEBREW_NO_AUTO_UPDATE=1 brew'
 
 # Virtualenv
 export WORKON_HOME=~/.envs
-# VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-source /usr/bin/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+source /usr/local/bin/virtualenvwrapper.sh
+
+export PATH=/usr/local/opt/ruby/bin:$PATH
 
 # direnv for environment variables
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 
 # plugins
 plugins=(zsh-wakatime archlinux)
 # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim='nvim'
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -102,3 +106,9 @@ plugins=(zsh-wakatime archlinux)
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rajesh/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rajesh/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rajesh/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rajesh/.google-cloud-sdk/completion.zsh.inc'; fi
