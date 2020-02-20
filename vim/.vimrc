@@ -96,7 +96,7 @@
 
     " Look
     set background=dark
-    set guifont=PragmataPro:h13 " Fira\ Code:h12 Monoid:h13
+    set guifont=Fira\ Code:h12 "Monoid:h13 PragmataPro:h13
 
     if has('gui_running')
         set guioptions-=T
@@ -105,10 +105,12 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme night-owl "PaperColor
+        colorscheme atelier-cave
     else
         set t_Co=256
-        colorscheme afterglow
+        set termguicolors
+        set guifont=Iosevka:h12
+        colorscheme Papercolor
     endif
     let g:space_vim_dark_background = 233
 
@@ -166,10 +168,14 @@
     nnoremap <Leader><Leader>g :source ~/.gvimrc
 
     " Toggle Tagbar
-    nmap <Leader><Leader>c :TagbarToggle<CR>
+    nmap <Leader>c :TagbarToggle<CR>
 
     " Toggle UndoTree
     nmap <Leader>u :UndotreeToggle<CR>
+
+    " Toggle Zen Mode
+    nnoremap <Leader><Leader>z :Goyo<CR>
+    nnoremap <Leader><Leader>zl :Limelight!!<CR>
 
 
 " Searching
@@ -192,23 +198,29 @@
     " Use Vim-plug
     call plug#begin()
 
+        Plug 'AndrewRadev/splitjoin.vim'
+        Plug 'ayu-theme/ayu-vim'
         Plug 'chriskempson/base16-vim'
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'easymotion/vim-easymotion'
         Plug 'ervandew/supertab'
         Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-        Plug 'haishanh/night-owl.vim'
         Plug 'honza/vim-snippets'
-        "Plug 'klen/python-mode'
         Plug 'jiangmiao/auto-pairs'
+        Plug 'junegunn/goyo.vim'
+        Plug 'junegunn/limelight.vim'
+        " Plug 'klen/python-mode'
+        " Plug 'liuchengxu/vim-clap'
         Plug 'majutsushi/tagbar'
         Plug 'mattn/emmet-vim'
         Plug 'mbbill/undotree'
         Plug 'mileszs/ack.vim'
         Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
-        Plug 'scrooloose/syntastic'
+        Plug 'sebdah/vim-delve'
         Plug 'sheerun/vim-polyglot'
+        " Plug 'shougo/deol.nvim'
+        Plug 'shougo/vimshell.vim'
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
@@ -229,20 +241,19 @@
     " Airline
     let g:airline_theme='tomorrow'
     let g:airline#extensions#tabline#enabled = 1
-    if has('gui_running')
-        let g:airline_symbols = {}
-        let g:airline_symbols.readonly = ''
-        let g:airline_symbols.branch = ''
-        let g:airline_left_alt_sep = ''
-        let g:airline_left_sep = ''
-        let g:airline_right_alt_sep = ''
-        let g:airline_right_sep = ''
-        let g:airline#extensions#tabline#left_alt_sep = ''     " 
-        let g:airline#extensions#tabline#left_sep = ''         " 
-        let g:airline#extensions#tabline#right_alt_sep = ''    " 
-        let g:airline#extensions#tabline#right_sep = ''        " 
-        let g:airline_skip_empty_sections = 1
-    endif
+    let g:airline_symbols = {}
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_left_alt_sep = ''    " 
+    let g:airline_left_sep = ''
+    let g:airline_right_alt_sep = ''   " 
+    let g:airline_right_sep = ''
+    let g:airline#extensions#tabline#left_alt_sep = ''     " 
+    let g:airline#extensions#tabline#left_sep = ''         " 
+    let g:airline#extensions#tabline#right_alt_sep = ''    " 
+    let g:airline#extensions#tabline#right_sep = ''        " 
+    let g:airline_skip_empty_sections = 1
 
     " CtrlP
     "let g:ctrlp_cmd = 'CtrlPBuffer'
@@ -250,6 +261,10 @@
     let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
     let g:ctrlp_working_path_mode = 'ra'
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+
+    " Goyo and Limelight
+    autocmd! User GoyoEnter Limelight
+    autocmd! User GoyoLeave Limelight!
 
     " Emmet-vim bindings
     let g:use_emmet_complete_tag = 1
