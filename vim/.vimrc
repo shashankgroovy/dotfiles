@@ -6,13 +6,13 @@
 " |___/_| |_|\__,_|_| |_|_|\_\___//dotfiles
 "
 "
-" The vim configuration, part of my dotfiles setup.
+" Vim configuration, part of my dotfiles setup.
 "
-" Copyright 2018 © Shashank Srivastav
+" Copyright 2020 © Shashank Srivastav
 "
 " More info at:
 " https://github.com/shashankgroovy/dotfiles
-"
+
 
 
 " General
@@ -96,7 +96,7 @@
 
     " Look
     set background=dark
-    set guifont=Fira\ Code:h12 "Monoid:h13 PragmataPro:h13
+    set guifont=Iosevka:h12 "Monoid:h13 PragmataPro:h13
 
     if has('gui_running')
         set guioptions-=T
@@ -105,12 +105,12 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme atelier-cave
+        colorscheme OceanicNext "atelier-cave
     else
         set t_Co=256
         set termguicolors
         set guifont=Iosevka:h12
-        colorscheme Papercolor
+        " colorscheme ayu
     endif
     let g:space_vim_dark_background = 233
 

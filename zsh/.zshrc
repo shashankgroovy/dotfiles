@@ -8,7 +8,7 @@
 #
 # The zsh configuration, part of my dotfiles setup.
 #
-# Copyright 2018 © Shashank Srivastav
+# Copyright 2020 © Shashank Srivastav
 #
 # More info at:
 # https://github.com/shashankgroovy/dotfiles
@@ -18,11 +18,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 # Icons for Prompt
-# ✗ ⏎ ➜ ❮ ❯ ⚡ ↓ ↑ ↕ ● ✭ ✖ ✚ λ ± ∓ ≠ ∅ ⁕ ✻ ⚙ ☣ ★ ☡ ⚠ ‼ ♪ ♫ ♛ ➤ ♯ ♥ ♦ ♣ ♠ ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
+# ✗ ⏎ ➜ ❮ ❯ ⚡λ ↓ ↑ ↕ ● ✭ ✖ ✚ λ ± ∓ ≠ ∅ ⁕ ✻ ⚙ ☣ ★ ☡ ⚠ ‼ ♪ ♫ ♛ ➤ ♯ ♥ ♦ ♣ ♠ ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
 
 setopt auto_cd
 # to have fish like quick suggestions
-plugins=(zsh-autosuggestions)
+# plugins=(zsh-autosuggestions)
 
 # source zsh aliases
 if [ -f ~/.zsh_aliases ]; then
@@ -63,7 +63,6 @@ alias o='a -e xdg-open'
 alias ipy="ipython3"
 alias py="python2"
 alias py3="python3"
-alias rust="rustc"
 
 # for git
 alias gitcls="git rm -r --cached"
@@ -82,17 +81,14 @@ alias gcl="git clone"
 alias gs="git stash"
 alias gsp="git stash pop"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
-alias brewq='HOMEBREW_NO_AUTO_UPDATE=1 brew'
 
 # Virtualenv
 export WORKON_HOME=~/.envs
 VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
-source /usr/local/bin/virtualenvwrapper.sh
-
-export PATH=/usr/local/opt/ruby/bin:$PATH
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # direnv for environment variables
-eval "$(direnv hook zsh)"
+ eval "$(direnv hook zsh)"
 
 # plugins
 plugins=(zsh-wakatime archlinux)
@@ -108,7 +104,7 @@ export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/rajesh/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rajesh/.google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/.google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/.google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/rajesh/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rajesh/.google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/.google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/.google-cloud-sdk/completion.zsh.inc'; fi
