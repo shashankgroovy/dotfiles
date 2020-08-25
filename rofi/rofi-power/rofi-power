@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Opens a rofi menu with various power options
+show_menu() {
+    # Menu options
+    lock_screen="Lock Screen"
+    standby="Suspend"
+    reboot="Reboot"
+    hibernate="Hibernate"
+    shutdown="Shutdown"
+
+    options="$lock_screen\n$standby\n$reboot\n$hibernate\n$shutdown"
+
+    # Open rofi menu, read chosen option
+    chosen="$(echo -e "$options" | $rofi_command "Power")"
+
+    # Match chosen option to command
+    case $chosen in
+        "" | $divider)
+            echo "No option chosen."
+            ;;
+        $lock_screen)
+            i3lock-fancy --text ""
+            ;;
+        $standby)
+            $($lock_screen) && sleep 1; systemctl suspend
+            ;;
+        $reboot)
+            systemctl reboot
+            ;;
+        $shutdown)
+            systemctl poweroff
+            ;;
+        $hibernate)
+            $($lock_screen) && sleep 1; systemctl hibernate
+            ;;
+        *)
+            uptime
+            ;;
+    esac
+}
+
+# Prints a short string with the power icon
+# Useful for status bars like polybar, etc.
+show_icon() {
+    echo "襤"
+}
+
+
+# Rofi command to pipe into, can add any options here
+rofi_command="rofi -dmenu -no-fixed-num-lines -yoffset -100 -i -p"
+# rofi_command="rofi -width 30 -dmenu -i -p rofi-power:"
+
+case "$1" in
+    --show)
+        show_icon
+        ;;
+    *)
+        show_menu
+        ;;
+esac
