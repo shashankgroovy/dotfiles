@@ -5,11 +5,12 @@ show_menu() {
     # Menu options
     lock_screen="Lock Screen"
     standby="Suspend"
+    log_out="Logout"
     reboot="Reboot"
     hibernate="Hibernate"
     shutdown="Shutdown"
 
-    options="$lock_screen\n$standby\n$reboot\n$hibernate\n$shutdown"
+    options="$lock_screen\n$standby\n$log_out\n$reboot\n$hibernate\n$shutdown"
 
     # Open rofi menu, read chosen option
     chosen="$(echo -e "$options" | $rofi_command "Power")"
@@ -24,6 +25,9 @@ show_menu() {
             ;;
         $standby)
             $($lock_screen) && sleep 1; systemctl suspend
+            ;;
+        $log_out)
+            loginctl terminate-session $XDG_SESSION_ID
             ;;
         $reboot)
             systemctl reboot

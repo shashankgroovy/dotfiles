@@ -21,8 +21,9 @@ ZSH=$HOME/.oh-my-zsh
 # ✗ ⏎ ➜ ❮ ❯ ⚡λ ↓ ↑ ↕ ● ✭ ✖ ✚ λ ± ∓ ≠ ∅ ⁕ ✻ ⚙ ☣ ★ ☡ ⚠ ‼ ♪ ♫ ♛ ➤ ♯ ♥ ♦ ♣ ♠ ⚀ ⚁ ⚂ ⚃ ⚄ ⚅
 
 setopt auto_cd
-# to have fish like quick suggestions
-# plugins=(zsh-autosuggestions)
+
+# plugins
+plugins=(wakatime archlinux zsh-autosuggestions)
 
 # source zsh aliases
 if [ -f ~/.zsh_aliases ]; then
@@ -44,6 +45,7 @@ alias tmuxcommands="head -n 24 ~/.tmux.conf"
 alias dotfiles="cd ~/.dotfiles"
 alias files='io.elementary.files'
 alias refresh="source ~/.zshrc"
+alias alconfig="vim ~/.config/alacritty/alacritty.yml"
 alias :q="exit"
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
 alias cya="cowsay -b 'knight is coming' && sleep 3 && sudo pm-hibernate"
@@ -60,9 +62,8 @@ alias m='f -e mplayer'
 alias o='a -e xdg-open'
 
 # python
-alias ipy="ipython3"
-alias py="python2"
-alias py3="python3"
+alias ipy="ipython"
+alias py="python"
 
 # for git
 alias gitcls="git rm -r --cached"
@@ -82,18 +83,15 @@ alias gs="git stash"
 alias gsp="git stash pop"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
-# Virtualenv
-export WORKON_HOME=~/.envs
-VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
-# source /usr/local/bin/virtualenvwrapper.sh
+alias vim='nvim'
+
+# Configurations
+
+# GPG signing for git
+export GPG_TTY=$(tty)
 
 # direnv for environment variables
  eval "$(direnv hook zsh)"
-
-# plugins
-plugins=(zsh-wakatime archlinux)
-# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias vim='nvim'
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -103,8 +101,13 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
 
+# Virtualenv
+export WORKON_HOME=~/.envs
+VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
+source ~/.local/bin/virtualenvwrapper.sh
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/.google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/.google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/shanks/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/shanks/.google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$HOME/.google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/.google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/shanks/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shanks/.google-cloud-sdk/completion.zsh.inc'; fi

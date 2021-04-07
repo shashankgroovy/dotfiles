@@ -1,0 +1,93 @@
+{
+    "go.toolsManagement.autoUpdate": true,
+    "python.formatting.provider": "black",
+    "debug.allowBreakpointsEverywhere": true,
+    "workbench.iconTheme": "ayu",
+    "workbench.colorTheme": "Ayu Dark",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 13,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "L"
+            ],
+            "after": [
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "H"
+            ],
+            "after": [
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "z"
+            ],
+            "commands": [
+                "workbench.action.toggleZenMode"
+            ]
+        }
+    ],
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.commandlineinprogress": "#98CC99",
+    "vim.statusBarColors.normal": "#0D1016",
+    "vim.statusBarColors.insert": "#141924",
+    "vim.statusBarColors.replace": "#FF3332",
+    "vim.statusBarColors.visual": "#A36ACC",
+    "vim.statusBarColors.visualblock": "#A36ACC",
+    "vim.statusBarColors.visualline": "#CC98CC",
+    "vim.statusBarColors.searchinprogressmode": "#F29667",
+    "vim.statusBarColors.surroundinputmode": "#D3BFFF",
+    "vim.statusBarColors.easymotioninputmode": "#94E6CB",
+    "vim.statusBarColors.easymotionmode": "#94E6CB",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#0D1016",
+        "statusBar.noFolderBackground": "#0D1016",
+        "statusBar.debuggingBackground": "#0D1016"
+    },
+    "gitlens.hovers.currentLine.over": "line",
+    "explorer.confirmDelete": false,
+    "gitlens.hovers.avatars": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ]
+}
