@@ -96,7 +96,10 @@
 
     " Look
     set background=dark
-    set guifont=Iosevka:h12 "Monoid:h13 PragmataPro:h13
+    " set guifont=Fira\ Code\ Regular:h11 "Monoid:h13 PragmataPro:h13
+    " set guifont=Fira\ Code\ 12
+    set guifont=Iosevka\ 12
+    colorscheme gotham
 
     if has('gui_running')
         set guioptions-=T
@@ -110,7 +113,6 @@
         set t_Co=256
         set termguicolors
         set guifont=Iosevka:h12
-        " colorscheme ayu
     endif
     let g:space_vim_dark_background = 233
 
@@ -230,6 +232,7 @@
         Plug 'valloric/youcompleteme'
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
+        Plug 'vim-scripts/BufOnly.vim'
         Plug 'vim-syntastic/syntastic'
         Plug 'wakatime/vim-wakatime'
 
@@ -301,6 +304,7 @@
 
       " YouCompleteMe
       let g:ycm_python_binary_path = '/usr/local/bin/python3'
+      let g:python3_host_prog = '/usr/bin/python3'
     endif
 
     " Zencoding bindings

@@ -62,6 +62,7 @@ client.urgent           $base02 $base08    $base00 $base0F
 for_window [class="Lxappearance"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Yad" title="yad-calendar"] floating enable
 
 # No title bar
 for_window [class="^.*"] border pixel 0
@@ -201,8 +202,8 @@ assign [class="Popcorn-Time"] $ws9
 # Cycle through active workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym Ctrl+$alt+Right workspace next
-bindsym Ctrl+$alt+Left workspace prev
+bindsym $alt+Right workspace next
+bindsym $alt+Left workspace prev
 
 
 # Key Bindings
@@ -260,6 +261,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Display settings
 # bindsym XF86 "$mode_display"
+bindsym $mod+p exec --no-startup-id python ~/.config/screenlayout/toggle_screen.py
 
 
 # Quick functions
@@ -293,7 +295,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # lock screen and power
-set $lock_screen i3lock-fancy --text "" && sleep 1
+set $lock_screen i3lock-fancy --text ""
 set $power (l)lock  (e)logout  (s)suspend  (h)hibernate  (r)reboot  (Shift+s)shutdown
 
 mode "$power" {
@@ -327,6 +329,13 @@ bindsym $mod+d exec dmenu_run
 
 # start rofi
 bindsym $alt+space exec rofi -show run
+
+# use rofi as window manager
+bindsym $alt+Tab exec rofi -show window
+
+# toggle polybar
+bindsym $alt+minus exec polybar-msg cmd hide
+bindsym $alt+plus exec polybar-msg cmd show
 
 # Scratchpad
 # Make the currently focused window a scratchpad
