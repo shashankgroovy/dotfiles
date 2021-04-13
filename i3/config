@@ -69,8 +69,8 @@ for_window [class="^.*"] border pixel 0
 new_window 1pixel
 
 # i3 gaps
-gaps inner 5
-gaps outer 5
+gaps inner 2
+gaps outer 2
 
 # Bar
 # <- Switching to polybar
@@ -261,7 +261,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Display settings
 # bindsym XF86 "$mode_display"
-bindsym $mod+p exec --no-startup-id python ~/.config/screenlayout/toggle_screen.py
+bindsym $mod+p exec --no-startup-id python ~/.config/xrandr-layout/toggle.py
 
 
 # Quick functions
