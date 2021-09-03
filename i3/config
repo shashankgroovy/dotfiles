@@ -358,7 +358,7 @@ bindsym $mod+b exec --no-startup-id ~/.config/rofi-bluetooth/rofi-bluetooth
 exec_always compton -f
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.*
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh

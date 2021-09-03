@@ -96,10 +96,8 @@
 
     " Look
     set background=dark
+    colorscheme archery
     " set guifont=Fira\ Code\ Regular:h11 "Monoid:h13 PragmataPro:h13
-    " set guifont=Fira\ Code\ 12
-    set guifont=Iosevka\ 12
-    colorscheme gotham
 
     if has('gui_running')
         set guioptions-=T
@@ -108,7 +106,7 @@
         set guioptions-=L
         set guioptions-=l
         set guioptions-=m
-        colorscheme OceanicNext "atelier-cave
+        set guifont=Iosevka\ 12
     else
         set t_Co=256
         set termguicolors
@@ -212,17 +210,20 @@
         Plug 'junegunn/goyo.vim'
         Plug 'junegunn/limelight.vim'
         " Plug 'klen/python-mode'
+        Plug 'leafgarland/typescript-vim'
         " Plug 'liuchengxu/vim-clap'
         Plug 'majutsushi/tagbar'
         Plug 'mattn/emmet-vim'
+        Plug 'maxmellon/vim-jsx-pretty'
         Plug 'mbbill/undotree'
         Plug 'mileszs/ack.vim'
+        Plug 'pangloss/vim-javascript'
         Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
         Plug 'sebdah/vim-delve'
         Plug 'sheerun/vim-polyglot'
-        " Plug 'shougo/deol.nvim'
         Plug 'shougo/vimshell.vim'
+        " Plug 'shougo/deol.nvim'
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
