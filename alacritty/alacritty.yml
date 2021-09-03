@@ -1,0 +1,109 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+# Any items in the `env` entry below will be added as
+# environment variables.
+env:
+  TERM: alacritty
+  LANG: "en_US.UTF-8"
+  LC_CTYPE: en_US.UTF-8
+
+  # Font configuration
+font:
+  # Normal (roman) font face
+  normal:
+    family: Iosevka
+    style: Regular
+  # Point size
+  size: 8.0
+  # size: 10.0
+
+  # Thin stroke font rendering (macOS only)
+  # Thin strokes are suitable for retina displays, but for non-retina screens
+  # it is recommended to set `use_thin_strokes` to `false`
+  use_thin_strokes: true
+
+# If `true`, bold text is drawn using the bright color variants.
+# draw_bold_text_with_bright_colors: false
+
+# https://github.com/alacritty/alacritty/wiki/Color-schemes
+# Colors (KDE Breeze)
+colors:
+  # Default colors
+  primary:
+    background: '#232627'
+    foreground: '#FCFCFC'
+
+    dim_foreground: '#EFF0F1'
+    bright_foreground: '#FFFFFF'
+    dim_background: '#31363B'
+    bright_background: '#000000'
+
+  # Normal colors
+  normal:
+    black: '#232627'
+    red: '#ED1515'
+    green: '#11D116'
+    yellow: '#F67400'
+    blue: '#1D99F3'
+    magenta: '#9B59B6'
+    cyan: '#1ABC9C'
+    white: '#FCFCFC'
+
+  # Bright colors
+  bright:
+    black: '#7F8C8D'
+    red: '#C0392B'
+    green: '#1CDC9A'
+    yellow: '#FDBC4B'
+    blue: '#3DAEE9'
+    magenta: '#8E44AD'
+    cyan: '#16A085'
+    white: '#FFFFFF'
+
+  # Dim colors
+  dim:
+    black: '#31363B'
+    red: '#783228'
+    green: '#17A262'
+    yellow: '#B65619'
+    blue: '#1B668F'
+    magenta: '#614A73'
+    cyan: '#186C60'
+    white: '#63686D'
+
+  # search colours
+  search:
+    matches:
+      background: '#F2AE49'
+      foreground: '#0D1016'
+
+    focused_match:
+      foreground: CellBackground
+      background: CellForeground
+
+    bar:
+      background: '#FFB454'
+      foreground: '#0D1016'
+
+background_opacity: 0.95
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 100000
+
+  # Scrolling distance multiplier.
+  multiplier: 10
+
+# Bell: The bell is rung every time the BEL control character is received.
+bell:
+  animation: EaseOut
+  duration: 400
+  color: '#1cdc9a'
+  # color: '#A6CC70'
+  command: None
+
+cursor:
+  style:
+    shape: Block
+    blinking: On
