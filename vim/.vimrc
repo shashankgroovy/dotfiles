@@ -8,7 +8,7 @@
 "
 " Vim configuration, part of my dotfiles setup.
 "
-" Copyright 2020 © Shashank Srivastav
+" Copyright 2022 © Shashank Srivastav
 "
 " More info at:
 " https://github.com/shashankgroovy/dotfiles
@@ -158,6 +158,10 @@
     " Format json
     nnoremap gr :%!python -m json.tool <CR> :set ft=json <CR>
 
+    " Better Buffer control
+    nnoremap <Leader>bn :bn <CR>
+    nnoremap <Leader>bp :bp <CR>
+
     " Opens $MYVIMRC for editing vimrc in a jiffy
     nnoremap <Leader><Leader>v :e $MYVIMRC
 
@@ -217,6 +221,7 @@
         Plug 'maxmellon/vim-jsx-pretty'
         Plug 'mbbill/undotree'
         Plug 'mileszs/ack.vim'
+        Plug 'ntk148v/vim-horizon'
         Plug 'pangloss/vim-javascript'
         Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
@@ -249,10 +254,10 @@
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.branch = ''
     let g:airline_symbols.linenr = '␊'
-    let g:airline_left_alt_sep = ''    " 
-    let g:airline_left_sep = ''
-    let g:airline_right_alt_sep = ''   " 
-    let g:airline_right_sep = ''
+    let g:airline_left_alt_sep = '/'    " 
+    let g:airline_left_sep = '' "
+    let g:airline_right_alt_sep = '\'   " 
+    let g:airline_right_sep = '' "
     let g:airline#extensions#tabline#left_alt_sep = ''     " 
     let g:airline#extensions#tabline#left_sep = ''         " 
     let g:airline#extensions#tabline#right_alt_sep = ''    " 
@@ -351,6 +356,9 @@
     endfunc
 
     nmap <C-S-T> :call <SID>SynStack()<CR>
+
+    " Allow saving of files as sudo when I forgot to start vim using sudo.
+    cmap w!! w !sudo tee > /dev/null %
 
 
 " Programming Languages

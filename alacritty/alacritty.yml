@@ -1,21 +1,23 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-
 # Any items in the `env` entry below will be added as
 # environment variables.
 env:
   TERM: alacritty
   LANG: "en_US.UTF-8"
   LC_CTYPE: en_US.UTF-8
-
   # Font configuration
 font:
   # Normal (roman) font face
   normal:
     family: Iosevka
     style: Regular
+
   # Point size
-  size: 8.0
-  # size: 10.0
+  # size: 8.0
+  size: 10.0
+
+  offset:
+    x: 0 # for letter spacing
+    y: 2 # for line spacing
 
   # Thin stroke font rendering (macOS only)
   # Thin strokes are suitable for retina displays, but for non-retina screens
@@ -24,68 +26,38 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 # draw_bold_text_with_bright_colors: false
-
 # https://github.com/alacritty/alacritty/wiki/Color-schemes
 # Colors (KDE Breeze)
 colors:
-  # Default colors
+  name: Cloud
+  author: ""
   primary:
-    background: '#232627'
-    foreground: '#FCFCFC'
-
-    dim_foreground: '#EFF0F1'
-    bright_foreground: '#FFFFFF'
-    dim_background: '#31363B'
-    bright_background: '#000000'
-
-  # Normal colors
+    background: "#000000"
+    foreground: "#ffffff"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#232627'
-    red: '#ED1515'
-    green: '#11D116'
-    yellow: '#F67400'
-    blue: '#1D99F3'
-    magenta: '#9B59B6'
-    cyan: '#1ABC9C'
-    white: '#FCFCFC'
-
-  # Bright colors
+    black: "#222827"
+    red: "#d5a8e3"
+    green: "#9c75dd"
+    yellow: "#9898ae"
+    blue: "#654a96"
+    magenta: "#625566"
+    cyan: "#a9d1df"
+    white: "#e6ebe5"
   bright:
-    black: '#7F8C8D'
-    red: '#C0392B'
-    green: '#1CDC9A'
-    yellow: '#FDBC4B'
-    blue: '#3DAEE9'
-    magenta: '#8E44AD'
-    cyan: '#16A085'
-    white: '#FFFFFF'
+    black: "#5d6f74"
+    red: "#cd749c"
+    green: "#63b0b0"
+    yellow: "#c0c0dd"
+    blue: "#5786bc"
+    magenta: "#3f3442"
+    cyan: "#849da2"
+    white: "#d9d6cf"
 
-  # Dim colors
-  dim:
-    black: '#31363B'
-    red: '#783228'
-    green: '#17A262'
-    yellow: '#B65619'
-    blue: '#1B668F'
-    magenta: '#614A73'
-    cyan: '#186C60'
-    white: '#63686D'
-
-  # search colours
-  search:
-    matches:
-      background: '#F2AE49'
-      foreground: '#0D1016'
-
-    focused_match:
-      foreground: CellBackground
-      background: CellForeground
-
-    bar:
-      background: '#FFB454'
-      foreground: '#0D1016'
-
-background_opacity: 0.95
+window:
+  opacity: 0.85
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -107,3 +79,4 @@ cursor:
   style:
     shape: Block
     blinking: On
+theme: Cloud
