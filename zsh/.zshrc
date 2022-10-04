@@ -23,7 +23,7 @@ ZSH=$HOME/.oh-my-zsh
 setopt auto_cd
 
 # plugins
-plugins=(wakatime archlinux zsh-autosuggestions)
+plugins=(archlinux zsh-autosuggestions)
 
 # source zsh aliases
 if [ -f ~/.zsh_aliases ]; then
@@ -60,6 +60,8 @@ eval "$(fasd --init posix-alias zsh-hook)"
 alias v='f -e vim'
 alias m='f -e mplayer'
 alias o='a -e xdg-open'
+alias pu='pushd'
+alias po='popd'
 
 # python
 alias ipy="ipython"
@@ -87,6 +89,12 @@ alias vim='nvim'
 
 # Configurations
 
+# Activate the gnome keyring daemon
+# if [ -n "$DESKTOP_SESSION" ];then
+#     eval $(gnome-keyring-daemon --start)
+#     export SSH_AUTH_SOCK
+# fi
+
 # GPG signing for git
 export GPG_TTY=$(tty)
 
@@ -111,7 +119,7 @@ VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
 source ~/.local/bin/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/shanks/.google-cloud-sdk/path.zsh.inc' ]; then . '/home/shanks/.google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/shanks/google-cloud-sdk/path.zsh.inc' ]; then . '/home/shanks/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/shanks/.google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shanks/.google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/shanks/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shanks/google-cloud-sdk/completion.zsh.inc'; fi

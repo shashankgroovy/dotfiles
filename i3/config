@@ -270,15 +270,10 @@ bindsym $mod+p exec --no-startup-id python ~/.config/xrandr-layout/toggle.py
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
@@ -349,6 +344,9 @@ bindsym $mod+n exec --no-startup-id ~/.config/rofi-nmcli/rofi-nmcli
 
 # Open Bluez-utils in rofi
 bindsym $mod+b exec --no-startup-id ~/.config/rofi-bluetooth/rofi-bluetooth
+
+# Open qalculator in rofi
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 
 
 # Launch

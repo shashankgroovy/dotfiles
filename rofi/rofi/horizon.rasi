@@ -1,0 +1,112 @@
+/*
+ * ROFI Horizon
+ *
+ * Based on Horizon theme (https://github.com/jolaleye/horizon-theme-vscode)
+ *
+ * Author: Shashank Srivastav
+ * User: shashankgroovy
+ *
+ */
+
+
+* {
+  black:      #16161C;
+  red:        #E9436F;
+  green:      #bbff00;
+  orange:     #F77D26;
+  deeporange: #DC3318;
+  bloodred:   #F43E5C;
+  text:       #dfdfdf;
+  text-alt:   #1A1C23;
+
+  spacing: 0;
+  background-color: transparent;
+
+  font: "Edmondsans 14";
+  /* text-color: @text; */
+}
+
+window {
+  transparency: "real";
+  fullscreen: true;
+  background-color: #1A1C23dd;
+}
+
+mainbox {
+  padding: 30% 30%;
+}
+
+inputbar {
+  margin: 0px 0px 20px 0px;
+  children: [textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+  text-color: @bloodred;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: "λ";
+  text-color: @bloodred;
+}
+
+entry {
+  margin: 0px 10px;
+  text-color: @text;
+}
+
+case-indicator {
+    spacing:    0;
+    text-color: @text;
+}
+
+listview {
+  spacing: 5px;
+  dynamic: true;
+  scrollbar: false;
+}
+
+element {
+  padding: 5px;
+  highlight: bold #bbff00; /* green */
+  border-radius: 3px;
+}
+element-text {
+  text-color: inherit;
+}
+
+element normal normal, element alternate normal {
+  text-color: @text;
+}
+
+element selected normal{
+  background-color: @orange;
+  text-color: @text-alt;
+}
+
+element normal urgent, element selected urgent {
+  background-color: @green;
+  text-color: @text-alt;
+}
+
+element normal active, element selected active {
+  text-color: @deeporange;
+}
+
+message {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @orange;
+  border: 1px;
+  border-color: @deeporange;
+}
+
+button selected {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @orange;
+}
+
+
+
