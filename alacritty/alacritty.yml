@@ -12,9 +12,9 @@ font:
     style: Regular
 
   # Point size
+  # size: 6.0
   # size: 8.0
   size: 10.0
-
   offset:
     x: 0 # for letter spacing
     y: 2 # for line spacing
@@ -29,32 +29,32 @@ font:
 # https://github.com/alacritty/alacritty/wiki/Color-schemes
 # Colors (KDE Breeze)
 colors:
-  name: Cloud
-  author: ""
+  name: Atelierheath (dark)
+  author: Chris Kempson
   primary:
-    background: "#000000"
-    foreground: "#ffffff"
+    background: "#1b181b"
+    foreground: "#ab9bab"
   cursor:
-    text: "#000000"
-    cursor: "#ffffff"
+    text: "#1b181b"
+    cursor: "#ab9bab"
   normal:
-    black: "#222827"
-    red: "#d5a8e3"
-    green: "#9c75dd"
-    yellow: "#9898ae"
-    blue: "#654a96"
-    magenta: "#625566"
-    cyan: "#a9d1df"
-    white: "#e6ebe5"
+    black: "#1b181b"
+    red: "#ca402b"
+    green: "#379a37"
+    yellow: "#bb8a35"
+    blue: "#516aec"
+    magenta: "#7b59c0"
+    cyan: "#159393"
+    white: "#ab9bab"
   bright:
-    black: "#5d6f74"
-    red: "#cd749c"
-    green: "#63b0b0"
-    yellow: "#c0c0dd"
-    blue: "#5786bc"
-    magenta: "#3f3442"
-    cyan: "#849da2"
-    white: "#d9d6cf"
+    black: "#776977"
+    red: "#ca402b"
+    green: "#379a37"
+    yellow: "#bb8a35"
+    blue: "#516aec"
+    magenta: "#7b59c0"
+    cyan: "#159393"
+    white: "#f7f3f7"
 
 window:
   opacity: 0.85
@@ -79,4 +79,4 @@ cursor:
   style:
     shape: Block
     blinking: On
-theme: Cloud
+theme: Atelierheath.dark

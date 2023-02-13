@@ -181,6 +181,14 @@
     nnoremap <Leader><Leader>z :Goyo<CR>
     nnoremap <Leader><Leader>zl :Limelight!!<CR>
 
+    " Telescope bindings
+    nnoremap <silent> ;f <cmd>Telescope find_files<cr>
+    nnoremap <silent> ;r <cmd>Telescope live_grep<cr>
+    nnoremap <silent> \\ <cmd>Telescope buffers<cr>
+    " nnoremap <silent> ;; <cmd>Telescope help_tags<cr>
+
+    " Lspsaga
+    " nnoremap <silent>K :Lspsaga hover_doc<CR>
 
 " Searching
 
@@ -202,6 +210,27 @@
     " Use Vim-plug
     call plug#begin()
 
+        Plug 'dense-analysis/ale'
+        Plug 'lewis6991/gitsigns.nvim'
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-lua/popup.nvim'
+        Plug 'nvim-telescope/telescope.nvim'
+        Plug 'nvim-treesitter/nvim-treesitter'
+        Plug 'ryanoasis/vim-devicons'
+        Plug 'williamboman/mason.nvim'
+        Plug 'williamboman/mason-lspconfig.nvim'
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'hrsh7th/cmp-buffer'
+        Plug 'hrsh7th/cmp-cmdline'
+        Plug 'hrsh7th/cmp-nvim-lsp'
+        Plug 'hrsh7th/cmp-path'
+        Plug 'hrsh7th/cmp-vsnip'
+        Plug 'hrsh7th/nvim-cmp'
+        Plug 'hrsh7th/vim-vsnip'
+        Plug 'ray-x/lsp_signature.nvim'
+        Plug 'onsails/lspkind.nvim'
+
+        " Plug 'liuchengxu/vim-clap'
         Plug 'AndrewRadev/splitjoin.vim'
         Plug 'ayu-theme/ayu-vim'
         Plug 'chriskempson/base16-vim'
@@ -213,9 +242,6 @@
         Plug 'jiangmiao/auto-pairs'
         Plug 'junegunn/goyo.vim'
         Plug 'junegunn/limelight.vim'
-        " Plug 'klen/python-mode'
-        Plug 'leafgarland/typescript-vim'
-        " Plug 'liuchengxu/vim-clap'
         Plug 'majutsushi/tagbar'
         Plug 'mattn/emmet-vim'
         Plug 'maxmellon/vim-jsx-pretty'
@@ -223,23 +249,18 @@
         Plug 'mileszs/ack.vim'
         Plug 'ntk148v/vim-horizon'
         Plug 'pangloss/vim-javascript'
-        Plug 'posva/vim-vue'
         Plug 'scrooloose/nerdtree'
         Plug 'sebdah/vim-delve'
         Plug 'sheerun/vim-polyglot'
-        Plug 'shougo/vimshell.vim'
-        " Plug 'shougo/deol.nvim'
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-unimpaired'
-        Plug 'valloric/youcompleteme'
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
         Plug 'vim-scripts/BufOnly.vim'
-        Plug 'vim-syntastic/syntastic'
         Plug 'wakatime/vim-wakatime'
 
     call plug#end()
@@ -263,6 +284,9 @@
     let g:airline#extensions#tabline#right_alt_sep = ''    " 
     let g:airline#extensions#tabline#right_sep = ''        " 
     let g:airline_skip_empty_sections = 1
+
+    " Show ALE on Airline
+    let g:airline#extensions#ale#enabled = 1
 
     " CtrlP
     "let g:ctrlp_cmd = 'CtrlPBuffer'
@@ -296,22 +320,6 @@
 
     " Vim slime settings
     "let g:slime_target = "tmux"
-
-    " UltiSnips
-    if has('gui_running')
-      " Load it only in macvim, fucks up in terminal
-      " let g:UltiSnipsExpandTrigger = "<M-space>"
-      " let g:UltiSnipsJumpForwardTrigger = "<c-b>"
-      " let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-
-      "let g:UltiSnipsExpandTrigger="<leader>p"
-      "let g:UltiSnipsJumpForwardTrigger="<Down>"
-      "let g:UltiSnipsJumpBackwardTrigger="<UP>"
-
-      " YouCompleteMe
-      let g:ycm_python_binary_path = '/usr/local/bin/python3'
-      let g:python3_host_prog = '/usr/bin/python3'
-    endif
 
     " Zencoding bindings
     let g:use_zen_complete_tag = 1
@@ -384,11 +392,6 @@
     " Python syntax highlighting
     let python_highlight_all=1
 
-    " Use python3 for syntastic using flake8
-    let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-    let g:syntastic_python_flake8_exec = 'python3'
-    let g:syntastic_python_flake8_args = ['-m', 'flake8']
-
     " Indentation settings
     autocmd Bufread *.py setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent
     autocmd Bufread *.js setlocal tabstop=2 shiftwidth=2 smarttab expandtab softtabstop=2 autoindent
@@ -399,3 +402,4 @@
     let g:go_highlight_build_constraints = 1
     let g:go_highlight_function_calls = 1
     let g:go_auto_type_info = 1
+
