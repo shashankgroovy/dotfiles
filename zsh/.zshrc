@@ -101,9 +101,13 @@ export GPG_TTY=$(tty)
 # direnv for environment variables
  eval "$(direnv hook zsh)"
 
+# NVM configurations
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Pyenv
+export PATH=$(pyenv root)/shims:$PATH
 
 # pytest and other packages
 export PATH=$PATH:$HOME/.local/bin
@@ -123,3 +127,6 @@ if [ -f '/home/shanks/google-cloud-sdk/path.zsh.inc' ]; then . '/home/shanks/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/shanks/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shanks/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
