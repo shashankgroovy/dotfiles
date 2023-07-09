@@ -155,17 +155,17 @@ bindsym $mod+Shift+a focus child
 
 # Workspaces
 # -----------
-
-set $ws1 "1: •"
-set $ws2 "2: •"
-set $ws3 "3: •"
-set $ws4 "4: •"
-set $ws5 "5: •"
-set $ws6 "6: •"
-set $ws7 "7: •"
-set $ws8 "8: •"
-set $ws9 "9: •"
-set $ws10 "10: •"
+# ••••••••••••
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # " :   :   :  :   : 
 
@@ -194,8 +194,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Program workspaces
-assign [class="Mozilla Firefox"] $ws1
-assign [class="GVIM"] $ws3
 assign [class="Spotify"] $ws10
 assign [class="Popcorn-Time"] $ws9
 
@@ -240,16 +238,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym shift+XF86MonBrightnessUp exec xbacklight -inc 1
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym shift+XF86MonBrightnessDown exec xbacklight -dec 1
-
-# Touchpad controls
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+# Use brightnessctl or acpilight (xbacklight)
+bindsym XF86MonBrightnessUp exec brightnessctl set +10
+bindsym shift+XF86MonBrightnessUp exec brightnessctl set +1
+bindsym XF86MonBrightnessDown exec brightnessctl set 10-
+bindsym shift+XF86MonBrightnessDown exec brightnessctl set 1-
 
 # Multitouch gestures
-exec_always libinput-gestures-setup start
+exec_always libinput-gestures-setup autostart start
 # bindsym --whole-window $mod+button10 workspace prev_on_output
 # bindsym --whole-window $mod+button11 workspace next_on_output
 
@@ -289,27 +285,28 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# lock screen and power
+# lock screen
 set $lock_screen i3lock-fancy --text ""
-set $power (l)lock  (e)logout  (s)suspend  (h)hibernate  (r)reboot  (Shift+s)shutdown
-
-mode "$power" {
-    # To access these power options, press an bound keys below with the actual
-    # modifier $mod+Escape
-    bindsym l exec --no-startup-id $lock_screen, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $lock_screen && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $lock_screen && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Escape mode "$power"
 bindsym $mod+Delete exec i3lock-fancy --text ""
+
+
+# Switch to use rofi for power menu
+# set $power (l)lock  (e)logout  (s)suspend  (h)hibernate  (r)reboot  (Shift+s)shutdown
+# mode "$power" {
+#     # To access these power options, press an bound keys below with the actual
+#     # modifier $mod+Escape
+#     bindsym l exec --no-startup-id $lock_screen, mode "default"
+#     bindsym e exec --no-startup-id i3-msg exit, mode "default"
+#     bindsym s exec --no-startup-id $lock_screen && systemctl suspend, mode "default"
+#     bindsym h exec --no-startup-id $lock_screen && systemctl hibernate, mode "default"
+#     bindsym r exec --no-startup-id systemctl reboot, mode "default"
+#     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# bindsym $mod+Escape mode "$power"
 
 
 # Plugin Invokes
@@ -347,6 +344,9 @@ bindsym $mod+b exec --no-startup-id ~/.config/rofi-bluetooth/rofi-bluetooth
 
 # Open qalculator in rofi
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
+
+# Open power menu in rofi
+bindsym $mod+Escape exec --no-startup-id ~/.config/rofi-power/rofi-power
 
 
 # Launch
