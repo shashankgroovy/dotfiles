@@ -85,7 +85,7 @@ alias gs="git stash"
 alias gsp="git stash pop"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
-alias vim='vim'
+alias vim='nvim'
 
 # Configurations
 
