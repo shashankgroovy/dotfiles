@@ -8,7 +8,7 @@
 "
 " Vim configuration, part of my dotfiles setup.
 "
-" Copyright 2022 © Shashank Srivastav
+" Copyright 2023 © Shashank Srivastav
 "
 " More info at:
 " https://github.com/shashankgroovy/dotfiles

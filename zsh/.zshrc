@@ -8,7 +8,7 @@
 #
 # The zsh configuration, part of my dotfiles setup.
 #
-# Copyright 2020 © Shashank Srivastav
+# Copyright 2023 © Shashank Srivastav
 #
 # More info at:
 # https://github.com/shashankgroovy/dotfiles
@@ -85,7 +85,7 @@ alias gs="git stash"
 alias gsp="git stash pop"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
-alias vim='nvim'
+alias vim='vim'
 
 # Configurations
 
@@ -120,7 +120,7 @@ ulimit -n 8096
 # Virtualenv
 export WORKON_HOME=~/.envs
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
-source ~/.local/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/shanks/google-cloud-sdk/path.zsh.inc' ]; then . '/home/shanks/google-cloud-sdk/path.zsh.inc'; fi
