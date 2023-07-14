@@ -30,8 +30,8 @@ font:
 
   # Point size
   # size: 6.0
-  size: 8.0
-  # size: 10.0
+  # size: 8.0
+  size: 10.0
   offset:
     x: 0 # for letter spacing
     y: 2 # for line spacing
