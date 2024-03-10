@@ -14,7 +14,6 @@
 # https://github.com/shashankgroovy/dotfiles
 #
 
-
 # Any items in the `env` entry below will be added as
 # environment variables.
 env:
@@ -27,46 +26,51 @@ font:
   normal:
     family: Iosevka Nerd Font
     style: Regular
+  bold:
+    family: Iosevka Nerd Font
+    style: Bold
+  italic:
+    family: Iosevka Nerd Font
+    style: Italic
 
   # Point size
-  # size: 6.0
-  # size: 8.0
-  size: 10.0
+  size: 8.0
+  # size: 10.0
   offset:
     x: 0 # for letter spacing
-    y: 2 # for line spacing
+    y: 4 # for line spacing
 
 # If `true`, bold text is drawn using the bright color variants.
 # draw_bold_text_with_bright_colors: false
 # https://github.com/alacritty/alacritty/wiki/Color-schemes
 # Colors (KDE Breeze)
 colors:
-  name: Atelierheath (dark)
-  author: Chris Kempson
+  # Default colors
   primary:
-    background: "#1b181b"
-    foreground: "#ab9bab"
-  cursor:
-    text: "#1b181b"
-    cursor: "#ab9bab"
+    background: '#10100E'
+    foreground: '#C6C6C4'
+
+  # Normal colors
   normal:
-    black: "#1b181b"
-    red: "#ca402b"
-    green: "#379a37"
-    yellow: "#bb8a35"
-    blue: "#516aec"
-    magenta: "#7b59c0"
-    cyan: "#159393"
-    white: "#ab9bab"
+    black: '#10100E'
+    red: '#C40233'
+    green: '#009F6B'
+    yellow: '#FFD700'
+    blue: '#0087BD'
+    magenta: '#9A4EAE'
+    cyan: '#20B2AA'
+    white: '#C6C6C4'
+
+  # Bright colors
   bright:
-    black: "#776977"
-    red: "#ca402b"
-    green: "#379a37"
-    yellow: "#bb8a35"
-    blue: "#516aec"
-    magenta: "#7b59c0"
-    cyan: "#159393"
-    white: "#f7f3f7"
+    black: '#696969'
+    red: '#FF2400'
+    green: '#03C03C'
+    yellow: '#FDFF00'
+    blue: '#007FFF'
+    magenta: '#FF1493'
+    cyan: '#00CCCC'
+    white: '#FFFAFA'
 
 window:
   opacity: 0.85
@@ -85,10 +89,10 @@ bell:
   duration: 400
   color: '#1cdc9a'
   # color: '#A6CC70'
-  command: None
+  # command: None
 
 cursor:
   style:
     shape: Block
     blinking: On
-theme: Atelierheath.dark
+theme: Blood-Moon
