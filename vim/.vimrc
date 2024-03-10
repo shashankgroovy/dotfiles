@@ -181,6 +181,9 @@
     nnoremap <Leader><Leader>z :Goyo<CR>
     nnoremap <Leader><Leader>zl :Limelight!!<CR>
 
+    " No highlight
+    nnoremap <silent> ;h :nohl<cr>
+
     " Telescope bindings
     nnoremap <silent> ;f <cmd>Telescope find_files<cr>
     nnoremap <silent> ;r <cmd>Telescope live_grep<cr>
@@ -249,6 +252,7 @@
         Plug 'mileszs/ack.vim'
         Plug 'ntk148v/vim-horizon'
         Plug 'pangloss/vim-javascript'
+        Plug 'rust-lang/rust.vim'
         Plug 'scrooloose/nerdtree'
         Plug 'sebdah/vim-delve'
         Plug 'sheerun/vim-polyglot'
@@ -403,3 +407,5 @@
     let g:go_highlight_function_calls = 1
     let g:go_auto_type_info = 1
 
+    " Rust formatting settings
+    let g:rustfmt_autosave = 1

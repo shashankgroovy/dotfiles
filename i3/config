@@ -196,6 +196,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # Program workspaces
 assign [class="Spotify"] $ws10
 assign [class="Popcorn-Time"] $ws9
+assign [class="zoom"] $ws9
+assign [class="Slack"] $ws10
 
 # Cycle through active workspaces
 bindsym $mod+Tab workspace next

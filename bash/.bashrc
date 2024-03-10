@@ -184,3 +184,4 @@ alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 # export PATH=$PATH:/opt/go/bin
 # export GOPATH=/opt/gocode/
 # export GOROOT=/opt/go/
+. "$HOME/.cargo/env"

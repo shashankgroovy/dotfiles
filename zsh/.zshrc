@@ -31,7 +31,7 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 # looks
-ZSH_THEME="avit"
+ZSH_THEME="robbyrussell"
 autoload -U colors && colors
 setopt correct
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
@@ -64,6 +64,7 @@ alias pu='pushd'
 alias po='popd'
 
 # python
+alias vipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 alias ipy="ipython"
 alias py="python"
 
@@ -108,6 +109,11 @@ export GPG_TTY=$(tty)
 
 # Pyenv
 export PATH=$(pyenv root)/shims:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# Make virtualenvwrapper to use pyenv for creating envs
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 # pytest and other packages
 export PATH=$PATH:$HOME/.local/bin
@@ -130,3 +136,18 @@ if [ -f '/home/shanks/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/shan
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/shanks/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/shanks/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/shanks/.miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/shanks/.miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
