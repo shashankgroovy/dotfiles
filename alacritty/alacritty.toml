@@ -1,0 +1,73 @@
+# theme = "Nightfly"
+
+[bell]
+animation = "EaseOut"
+color = "#1cdc9a"
+duration = 400
+
+[colors.bright]
+black = "#7c8f8f"
+blue = "#82aaff"
+cyan = "#7fdbca"
+green = "#21c7a8"
+magenta = "#ae81ff"
+red = "#ff5874"
+white = "#d6deeb"
+yellow = "#ecc48d"
+
+[colors.cursor]
+cursor = "#9ca1aa"
+text = "#fafafa"
+
+[colors.normal]
+black = "#1d3b53"
+blue = "#82aaff"
+cyan = "#7fdbca"
+green = "#a1cd5e"
+magenta = "#c792ea"
+red = "#fc514e"
+white = "#a1aab8"
+yellow = "#e3d18a"
+
+[colors.primary]
+background = "#011627"
+foreground = "#acb4c2"
+
+[colors.selection]
+background = "#b2ceee"
+text = "#080808"
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+LANG = "en_US.UTF-8"
+LC_CTYPE = "en_US.UTF-8"
+TERM = "alacritty"
+
+[font]
+size = 8.0
+
+[font.bold]
+family = "Iosevka Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Iosevka Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 4
+
+[scrolling]
+history = 100000
+multiplier = 10
+
+[window]
+opacity = 0.85

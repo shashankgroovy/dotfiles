@@ -1,5 +1,6 @@
 -- nvim-cmp setup
 local cmp = require 'cmp'
+local lspkind = require('lspkind')
 
 cmp.setup {
   snippet = {
@@ -8,16 +9,12 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-    ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-
-  -- ["<C-e>"] = cmp.mapping { i = cmp.mapping.close(), c = cmp.mapping.close() },
     ['<C-e>'] = cmp.mapping.abort(),
-
-    -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -25,8 +22,6 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      -- elseif luasnip.expand_or_jumpable() then
-      --   luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -34,8 +29,6 @@ cmp.setup {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      -- elseif luasnip.jumpable(-1) then
-      --   luasnip.jump(-1)
       else
         fallback()
       end
@@ -52,12 +45,46 @@ cmp.setup {
   window = {
     documentation = cmp.config.window.bordered(),
   },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      ellipsis_char = '...',
+      menu = {
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        vsnip = "[VSnip]",
+        path = "[Path]",
+        treesitter = "[TS]",
+      }
+    })
+  }
 }
 
+-- Setup for command line `/` and `?` search
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
+  }
+})
+
+-- Setup for command line `:` commands
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  }),
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = false,
+      menu = {
+        cmdline = "[Cmdline]",
+        path = "[Path]",
+      }
+    })
   }
 })
 
@@ -70,13 +97,3 @@ lsp_signature.setup {
   },
 }
 
-local lspkind = require('lspkind')
-cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = 'symbol',
-      maxwidth = 50,
-      ellipsis_char = '...',
-    })
-  }
-}

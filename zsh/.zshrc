@@ -45,7 +45,7 @@ alias tmuxcommands="head -n 24 ~/.tmux.conf"
 alias dotfiles="cd ~/.dotfiles"
 alias files='io.elementary.files'
 alias refresh="source ~/.zshrc"
-alias alconfig="vim ~/.config/alacritty/alacritty.yml"
+alias alconfig="vim ~/.config/alacritty/alacritty.toml"
 alias :q="exit"
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
 alias cya="cowsay -b 'knight is coming' && sleep 3 && sudo pm-hibernate"
@@ -151,3 +151,15 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+HISTFILE=$HOME/.zhistory
+HISTSIZE=1000
+SAVEHIST=1000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt HIST_REDUCE_BLANKS
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down

@@ -32,7 +32,7 @@
     syntax enable
 
     source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
-    behave mswin                    "mouse behavior like windows
+    " behave mswin                    "mouse behavior like windows
 
     " Pressing Tab on the command line will show a menu to complete buffer and
     "file names
@@ -67,6 +67,7 @@
     " Editing
     set cursorline                  " highlight the line with the cursor
     set number
+    set relativenumber
     set ruler                       " show the co-ordinates of the cursor
     set scrolloff=3                 " provide some context for editing
 
@@ -156,7 +157,17 @@
     nnoremap <CR> :nohlsearch<cr>
 
     " Format json
-    nnoremap gr :%!python -m json.tool <CR> :set ft=json <CR>
+    nnoremap gj :%!python -m json.tool <CR> :set ft=json <CR>
+
+    " Move lines in visual mode
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
+
+    " Use clipboard
+    nnoremap <leader>y "+y
+    nnoremap <leader>p "+p
+    vnoremap <leader>y "+y
+    vnoremap <leader>p "+p
 
     " Better Buffer control
     nnoremap <Leader>bn :bn <CR>
@@ -214,6 +225,7 @@
     call plug#begin()
 
         Plug 'dense-analysis/ale'
+        Plug 'github/copilot.vim'
         Plug 'lewis6991/gitsigns.nvim'
         Plug 'nvim-lua/plenary.nvim'
         Plug 'nvim-lua/popup.nvim'
