@@ -92,8 +92,8 @@ alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
 # Workspace switch
-alt-left = 'workspace prev --wrap-around'
-alt-right = 'workspace next --wrap-around'
+alt-shift-left = 'workspace prev --wrap-around'
+alt-shift-right = 'workspace next --wrap-around'
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
