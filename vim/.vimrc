@@ -8,11 +8,10 @@
 "
 " Vim configuration, part of my dotfiles setup.
 "
-" Copyright 2023 © Shashank Srivastav
+" Copyright 2024 © Shashank Srivastav
 "
 " More info at:
 " https://github.com/shashankgroovy/dotfiles
-
 
 
 " General
@@ -48,6 +47,8 @@
     nnoremap tk :tabprev<CR>
     nnoremap <C-tab>   :tabnext<CR>
     nnoremap <C-S-tab> :tabprevious<CR>
+    nnoremap <C-`>   :bnext<CR>
+    nnoremap <C-S-`> :bprevious<CR>
 
     " Easy movement between split windows
     nnoremap <c-h> <c-w>h
@@ -204,6 +205,18 @@
     " Lspsaga
     " nnoremap <silent>K :Lspsaga hover_doc<CR>
 
+    " Terminal remap
+    " Easily exit out of terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    nnoremap <leader>tt :ToggleTerm<CR>
+
+    " Gp remap
+    nnoremap <leader>gp :GpChatToggle<CR>
+
+    " Copilot -remap tab
+    " imap <silent><script><expr> <C-\> copilot#Accept("\<CR>")
+    " let g:copilot_no_tab_map = v:true
+
 " Searching
 
     " ACK
@@ -225,7 +238,7 @@
     call plug#begin()
 
         Plug 'dense-analysis/ale'
-        Plug 'github/copilot.vim'
+        " Plug 'github/copilot.vim'
         Plug 'lewis6991/gitsigns.nvim'
         Plug 'nvim-lua/plenary.nvim'
         Plug 'nvim-lua/popup.nvim'
@@ -246,6 +259,9 @@
         Plug 'onsails/lspkind.nvim'
 
         " Plug 'liuchengxu/vim-clap'
+        Plug 'goolord/alpha-nvim'
+        Plug 'robitx/gp.nvim'
+        Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
         Plug 'AndrewRadev/splitjoin.vim'
         Plug 'ayu-theme/ayu-vim'
         Plug 'chriskempson/base16-vim'
@@ -271,6 +287,7 @@
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-rhubarb'
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-unimpaired'
@@ -323,6 +340,7 @@
 
     " NERD Tree
     map <leader>n :NERDTreeToggle <cr>
+    map <leader><leader>n :NERDTreeFind <cr>
     let NERDChristmasTree = 1
     let NERDTreeShowBookmarks  = 1
     let NERDTreeWinPos = "left"
@@ -421,3 +439,6 @@
 
     " Rust formatting settings
     let g:rustfmt_autosave = 1
+
+    " .envrc
+    au BufNewFile,BufRead,BufReadPost,BufWritePost .envrc set syntax=bash

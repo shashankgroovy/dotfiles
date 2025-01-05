@@ -38,6 +38,7 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes
 export TERM='xterm-256color'
 
 # aliases
+alias ls="eza"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmuxconfig="vim ~/.tmux.conf"
@@ -47,6 +48,7 @@ alias files='io.elementary.files'
 alias refresh="source ~/.zshrc"
 alias alconfig="vim ~/.config/alacritty/alacritty.toml"
 alias :q="exit"
+alias :qa="pkill alacritty"
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
 alias cya="cowsay -b 'knight is coming' && sleep 3 && sudo pm-hibernate"
 alias yawn="cowsay -t 'Cya in a while' && sleep 3 && sudo pm-suspend"
@@ -69,21 +71,23 @@ alias ipy="ipython"
 alias py="python"
 
 # for git
-alias gitcls="git rm -r --cached"
-alias gi="git init"
 alias ga="git add"
-alias gc="git commit"
-alias gd="git diff"
-alias gr="git reset"
-alias gm="git merge"
-alias gpu="git push"
-alias gpl="git pull"
-alias gst="git status"
-alias gch="git checkout"
 alias gb="git branch"
+alias gc="git commit"
+alias gch="git checkout"
 alias gcl="git clone"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gi="git init"
+alias gitcls="git rm -r --cached"
+alias gm="git merge"
+alias gpl="git pull"
+alias gpu="git push"
+alias gr="git reset"
+alias grb="git rebase"
 alias gs="git stash"
 alias gsp="git stash pop"
+alias gst="git status"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 alias vim='nvim'
@@ -152,14 +156,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-HISTFILE=$HOME/.zhistory
-HISTSIZE=1000
-SAVEHIST=1000
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_VERIFY
-setopt HIST_REDUCE_BLANKS
+# HISTFILE=$HOME/.zhistory
+# HISTSIZE=10000
+# SAVEHIST=10000
+# setopt SHARE_HISTORY
+# setopt HIST_IGNORE_ALL_DUPS
+# setopt HIST_IGNORE_SPACE
+# setopt HIST_VERIFY
+# setopt HIST_REDUCE_BLANKS
 
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
