@@ -11,7 +11,7 @@ SERVERS = {
     "pyright",
     "rust_analyzer",
     "terraformls",
-    "tsserver",
+    "ts_ls",
     "vimls",
     "yamlls",
 }

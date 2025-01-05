@@ -10,13 +10,13 @@ local on_attach = function(client, bufnr)
 
   -- Show hover doc
   if client.server_capabilities.hoverProvider then
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
   end
 
   if client.server_capabilities.completionProvider then
     vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', 'gK', vim.lsp.buf.signature_help, bufopts)
   end
 
   if client.server_capabilities.definitionProvider then
@@ -64,34 +64,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     local bufnr = args.buf
 
-    if client.server_capabilities.hoverProvider then
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-    end
-
-    if client.server_capabilities.completionProvider then
-      vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = bufnr })
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = bufnr })
-    end
-
-    if client.server_capabilities.definitionProvider then
-      vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = bufnr })
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
-    end
-
-    if client.server_capabilities.referencesProvider then
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr })
-    end
-
-    if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = vim.api.nvim_create_augroup("Format", { clear = true }),
-        buffer = bufnr,
-        callback = function() vim.lsp.buf.formatting_seq_sync() end,
-      })
-    end
-
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+    on_attach(client, bufnr)
   end,
 })
