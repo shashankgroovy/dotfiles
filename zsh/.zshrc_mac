@@ -26,6 +26,9 @@ setopt auto_cd
 plugins=()
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # source zsh aliases
 if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
@@ -55,8 +58,7 @@ alias linux="cowsay -s 'We know you are on a linux machine'"
 
 source $ZSH/oh-my-zsh.sh
 
-#for zoxide
-eval "$(zoxide init zsh)"
+# handy aliases
 alias v='f -e vim'
 alias m='f -e mplayer'
 alias o='a -e xdg-open'
@@ -69,23 +71,29 @@ alias ipy="ipython"
 alias py="python"
 
 # for git
-alias gitcls="git rm -r --cached"
-alias gi="git init"
 alias ga="git add"
-alias gc="git commit"
-alias gd="git diff"
-alias gr="git reset"
-alias gm="git merge"
-alias gpu="git push"
-alias gpl="git pull"
-alias gst="git status"
-alias gch="git checkout"
 alias gb="git branch"
+alias gbd="git branch -D"
+alias gc="git commit"
+alias gch="git checkout"
 alias gcl="git clone"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gi="git init"
+alias gitcls="git rm -r --cached"
+alias gm="git merge"
+alias gpl="git pull"
+alias gpu="git push"
+alias gr="git reset"
+alias grb="git rebase"
+alias grbc="git rebase --continue"
 alias gs="git stash"
 alias gsp="git stash pop"
+alias gst="git status"
+alias gfp="git fetch --prune"
 alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
+alias lg="lazygit"
 alias vim='nvim'
 
 # Configurations
@@ -103,9 +111,9 @@ export GPG_TTY=$(tty)
 eval "$(direnv hook zsh)"
 
 # NVM configurations
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Pyenv
 export PATH=$(pyenv root)/shims:$PATH
@@ -116,18 +124,21 @@ eval "$(pyenv init -)"
 # Make virtualenvwrapper to use pyenv for creating envs
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
-# pytest and other packages
+# Virtualenv
+export WORKON_HOME=~/.envs
+export VIRTUALENVWRAPPER_PYTHON="$HOME/.pyenv/shims/python"
+export VIRTUALENVWRAPPER_VIRTUALENV="$HOME/.pyenv/shims/virtualenv"
+# source $HOME/.pyenv/shims/virtualenvwrapper.sh
+# pyenv-virtualenv package
+eval "$(pyenv virtualenv-init -)"
+
+# Pytest and other packages
 export PATH=$PATH:$HOME/.local/bin
 
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
-
-# Virtualenv
-export WORKON_HOME=~/.envs
-VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
-source /usr/bin/virtualenvwrapper.sh
 
 # ZSH history configurations
 HISTFILE=$HOME/.zhistory

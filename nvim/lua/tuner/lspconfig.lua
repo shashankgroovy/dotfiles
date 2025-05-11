@@ -11,6 +11,7 @@ local on_attach = function(client, bufnr)
   -- Show hover doc
   if client.server_capabilities.hoverProvider then
     vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gk', vim.lsp.buf.hover, bufopts)
   end
 
   if client.server_capabilities.completionProvider then

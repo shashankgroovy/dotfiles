@@ -31,7 +31,6 @@
     syntax enable
 
     source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
-    " behave mswin                    "mouse behavior like windows
 
     " Pressing Tab on the command line will show a menu to complete buffer and
     "file names
@@ -98,7 +97,7 @@
 
     " Look
     set background=dark
-    colorscheme archery
+    silent! colorscheme one
     " set guifont=Fira\ Code\ Regular:h11 "Monoid:h13 PragmataPro:h13
 
     if has('gui_running')
@@ -148,8 +147,8 @@
     nnoremap <space> za
 
     " Increment/Decrement integer
-    nnoremap <M-a> <C-a>
-    nnoremap <M-x> <C-x>
+    " nnoremap <M-a> <C-a>
+    " nnoremap <M-x> <C-x>
 
     " Toggle spell check
     nmap <silent> <leader>s :set spell!<CR>
@@ -158,11 +157,12 @@
     nnoremap <CR> :nohlsearch<cr>
 
     " Format json
-    nnoremap gj :%!python -m json.tool <CR> :set ft=json <CR>
+    " nnoremap gj :%!python -m json.tool <CR> :set ft=json <CR>
+    nnoremap gj :%!jq .<CR> :set ft=json <CR>
 
-    " Move lines in visual mode
-    vnoremap J :m '>+1<CR>gv=gv
-    vnoremap K :m '<-2<CR>gv=gv
+    " " Move lines in visual mode
+    vnoremap <C-j> :m '>+1<CR>gv=gv
+    vnoremap <C-k> :m '<-2<CR>gv=gv
 
     " Use clipboard
     nnoremap <leader>y "+y
@@ -202,6 +202,17 @@
     nnoremap <silent> \\ <cmd>Telescope buffers<cr>
     " nnoremap <silent> ;; <cmd>Telescope help_tags<cr>
 
+    " Terminal remap
+    " Easily exit out of terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    nnoremap <leader>tt :ToggleTerm<CR>
+
+    " Lazygit
+    nnoremap <leader>lg :LazyGit<CR>
+
+    " Gp remap
+    nnoremap <leader>gp :GpChatToggle<CR>
+
     " Lspsaga
     " nnoremap <silent>K :Lspsaga hover_doc<CR>
 
@@ -231,23 +242,12 @@
 
 " Plugins
 
-    " Use Pathogen
-    execute pathogen#infect()
-
     " Use Vim-plug
     call plug#begin()
 
         Plug 'dense-analysis/ale'
-        " Plug 'github/copilot.vim'
-        Plug 'lewis6991/gitsigns.nvim'
-        Plug 'nvim-lua/plenary.nvim'
-        Plug 'nvim-lua/popup.nvim'
-        Plug 'nvim-telescope/telescope.nvim'
-        Plug 'nvim-treesitter/nvim-treesitter'
-        Plug 'ryanoasis/vim-devicons'
-        Plug 'williamboman/mason.nvim'
-        Plug 'williamboman/mason-lspconfig.nvim'
-        Plug 'neovim/nvim-lspconfig'
+        Plug 'folke/tokyonight.nvim'
+        Plug 'github/copilot.vim'
         Plug 'hrsh7th/cmp-buffer'
         Plug 'hrsh7th/cmp-cmdline'
         Plug 'hrsh7th/cmp-nvim-lsp'
@@ -255,24 +255,36 @@
         Plug 'hrsh7th/cmp-vsnip'
         Plug 'hrsh7th/nvim-cmp'
         Plug 'hrsh7th/vim-vsnip'
-        Plug 'ray-x/lsp_signature.nvim'
+        Plug 'kdheepak/lazygit.nvim'
+        Plug 'lewis6991/gitsigns.nvim'
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-lua/popup.nvim'
+        Plug 'nvim-telescope/telescope.nvim'
+        Plug 'nvim-treesitter/nvim-treesitter'
         Plug 'onsails/lspkind.nvim'
+        Plug 'ray-x/lsp_signature.nvim'
+        Plug 'ryanoasis/vim-devicons'
+        Plug 'williamboman/mason-lspconfig.nvim'
+        Plug 'williamboman/mason.nvim'
 
         " Plug 'liuchengxu/vim-clap'
-        Plug 'goolord/alpha-nvim'
-        Plug 'robitx/gp.nvim'
-        Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
         Plug 'AndrewRadev/splitjoin.vim'
+        Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
         Plug 'ayu-theme/ayu-vim'
         Plug 'chriskempson/base16-vim'
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'easymotion/vim-easymotion'
         Plug 'ervandew/supertab'
         Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+        Plug 'goolord/alpha-nvim'
         Plug 'honza/vim-snippets'
+        Plug 'ianks/vim-tsx'
         Plug 'jiangmiao/auto-pairs'
+        Plug 'joereynolds/gq.vim'
         Plug 'junegunn/goyo.vim'
         Plug 'junegunn/limelight.vim'
+        Plug 'leafgarland/typescript-vim'
         Plug 'majutsushi/tagbar'
         Plug 'mattn/emmet-vim'
         Plug 'maxmellon/vim-jsx-pretty'
@@ -280,6 +292,7 @@
         Plug 'mileszs/ack.vim'
         Plug 'ntk148v/vim-horizon'
         Plug 'pangloss/vim-javascript'
+        Plug 'robitx/gp.nvim'
         Plug 'rust-lang/rust.vim'
         Plug 'scrooloose/nerdtree'
         Plug 'sebdah/vim-delve'
@@ -287,8 +300,8 @@
         Plug 'terryma/vim-multiple-cursors'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
-        Plug 'tpope/vim-rhubarb'
         Plug 'tpope/vim-repeat'
+        Plug 'tpope/vim-rhubarb'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-unimpaired'
         Plug 'vim-airline/vim-airline'
@@ -302,7 +315,7 @@
 " Plugin invokes
 
     " Airline
-    let g:airline_theme='tomorrow'
+    let g:airline_theme='onedark'
     let g:airline#extensions#tabline#enabled = 1
     let g:airline_symbols = {}
     let g:airline_symbols.readonly = ''
@@ -312,10 +325,10 @@
     let g:airline_left_sep = '' "
     let g:airline_right_alt_sep = '\'   " 
     let g:airline_right_sep = '' "
-    let g:airline#extensions#tabline#left_alt_sep = ''     " 
-    let g:airline#extensions#tabline#left_sep = ''         " 
-    let g:airline#extensions#tabline#right_alt_sep = ''    " 
-    let g:airline#extensions#tabline#right_sep = ''        " 
+    let g:airline#extensions#tabline#left_alt_sep = ''     " 
+    let g:airline#extensions#tabline#left_sep = ''         " 
+    let g:airline#extensions#tabline#right_alt_sep = ''    " 
+    let g:airline#extensions#tabline#right_sep = ''        " 
     let g:airline_skip_empty_sections = 1
 
     " Show ALE on Airline
@@ -373,8 +386,7 @@
         endif
     endfunction
 
-    command! ScratchToggle call ScratchToggle()
-    nnoremap <silent> <leader><tab> :ScratchToggle<cr>
+    nnoremap <silent> <leader><tab> :call ScratchToggle()<cr>
 
      " Toggle to trigger background
     function! ToggleBG()
@@ -442,3 +454,11 @@
 
     " .envrc
     au BufNewFile,BufRead,BufReadPost,BufWritePost .envrc set syntax=bash
+    "
+    " Sql formatting
+    function! SqlFormatter()
+        set noai
+        silent execute "%!sqlformat --reindent --keywords upper --identifiers lower -"
+        set syntax=sql
+    endfunction
+    noremap <leader>gs :call SqlFormatter()<CR>
