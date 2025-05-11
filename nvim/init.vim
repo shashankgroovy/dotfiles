@@ -19,6 +19,7 @@ source ~/.vimrc
 
 " colorscheme archery
 colorscheme ayu
+" colorscheme tokyonight-night
 " colorscheme PaperColor
 " colorscheme base16-horizon-dark
 
@@ -31,5 +32,3 @@ highlight NonText guibg=none
 
 " Load the lua configurations
 lua require('tuner')
-nmap <CR> :nohlsearch<cr>
-nnoremap <CR> :nohlsearch<cr>

@@ -73,4 +73,3 @@
 
   alpha.setup(dashboard.opts)
   vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
-
