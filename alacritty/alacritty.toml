@@ -1,5 +1,6 @@
+[general]
 import = [
-    "~/.config/alacritty/themes/tokyo-night.toml"
+    "~/.config/alacritty/themes/themes/ayu_dark.toml"
 ]
 
 [bell]
@@ -21,7 +22,7 @@ LC_CTYPE = "en_US.UTF-8"
 TERM = "alacritty"
 
 [font]
-size = 14.0
+size = 7.0
 
 [font.bold]
 family = "Iosevka Nerd Font"

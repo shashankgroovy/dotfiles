@@ -3,4 +3,7 @@
 *.pyc
 vim/.vim/plugged/
 
+# Skip alacritty themes
+alacritty/themes
+
 # everything else looks clean :)
