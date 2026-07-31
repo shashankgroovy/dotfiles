@@ -6,6 +6,11 @@ return {
     opts = {
       style = "night",
       transparent = true, -- matches the transparent alacritty setup
+      styles = {
+        -- sidebars (neo-tree, aerial, help, qf) get their own hl groups
+        -- and stay opaque unless told otherwise
+        sidebars = "transparent",
+      },
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
