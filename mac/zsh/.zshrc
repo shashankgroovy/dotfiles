@@ -24,7 +24,7 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes
 # Don't override TERM if the terminal already set one (alacritty/kitty/wezterm).
 [[ -z "$TERM" || "$TERM" == "dumb" ]] && export TERM='xterm-256color'
 
-ulimit -n 8096
+ulimit -n 8192
 
 
 # ---- History ---------------------------------------------------------------
@@ -76,6 +76,7 @@ eval "$(zoxide init zsh)"     # smarter cd ('z' / 'zi')
 __zoxide_cd() {
     builtin pushd "$@" > /dev/null
 }
+DIRSTACKSIZE=20               # cap the stack the pushd-based cd grows
 
 # atuin owns Ctrl-R; Up/Down stay with history-substring-search for in-line cycling.
 eval "$(atuin init zsh --disable-up-arrow)"
@@ -142,7 +143,7 @@ alias gs="git stash"
 alias gsp="git stash pop"
 alias gst="git status"
 alias gfp="git fetch --prune"
-alias sos="fsck --cache --no-reflogs --lost-found --dangling HEAD"
+alias sos="git fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 # macOS / fun
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
