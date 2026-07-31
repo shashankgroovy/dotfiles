@@ -3,6 +3,13 @@
 -- is gone; parsers are installed via `.install()` and highlight/indent
 -- are wired up through the built-in vim.treesitter APIs.
 return {
+  -- Pin the enclosing function/class signature to the top while scrolling
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = { max_lines = 4 },
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",

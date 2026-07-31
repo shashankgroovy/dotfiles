@@ -30,6 +30,15 @@ return {
   -- gS / gJ split-join
   { "AndrewRadev/splitjoin.vim", keys = { "gS", "gJ" } },
 
+  -- Highlight TODO/FIXME/HACK comments; :TodoTelescope to jump to them
+  {
+    "folke/todo-comments.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = { "TodoTelescope", "TodoQuickFix", "TodoLocList" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+
   -- Project-wide search & replace with live preview
   {
     "MagicDuck/grug-far.nvim",
