@@ -30,7 +30,7 @@
 
     syntax enable
 
-    source $VIMRUNTIME/mswin.vim    "allows standard windows copy/paste keystrokes
+    silent! source $VIMRUNTIME/mswin.vim
 
     " Pressing Tab on the command line will show a menu to complete buffer and
     "file names
@@ -245,7 +245,6 @@
     " Use Vim-plug
     call plug#begin()
 
-        Plug 'dense-analysis/ale'
         Plug 'folke/tokyonight.nvim'
         Plug 'github/copilot.vim'
         Plug 'hrsh7th/cmp-buffer'
@@ -257,11 +256,12 @@
         Plug 'hrsh7th/vim-vsnip'
         Plug 'kdheepak/lazygit.nvim'
         Plug 'lewis6991/gitsigns.nvim'
+        Plug 'mfussenegger/nvim-lint'
         Plug 'neovim/nvim-lspconfig'
         Plug 'nvim-lua/plenary.nvim'
         Plug 'nvim-lua/popup.nvim'
         Plug 'nvim-telescope/telescope.nvim'
-        Plug 'nvim-treesitter/nvim-treesitter'
+        Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
         Plug 'onsails/lspkind.nvim'
         Plug 'ray-x/lsp_signature.nvim'
         Plug 'ryanoasis/vim-devicons'
@@ -330,9 +330,6 @@
     let g:airline#extensions#tabline#right_alt_sep = ''    " 
     let g:airline#extensions#tabline#right_sep = ''        " 
     let g:airline_skip_empty_sections = 1
-
-    " Show ALE on Airline
-    let g:airline#extensions#ale#enabled = 1
 
     " CtrlP
     "let g:ctrlp_cmd = 'CtrlPBuffer'
