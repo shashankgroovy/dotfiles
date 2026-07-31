@@ -97,7 +97,7 @@
 
     " Look
     set background=dark
-    silent! colorscheme one
+    silent! colorscheme gotham
     " set guifont=Fira\ Code\ Regular:h11 "Monoid:h13 PragmataPro:h13
 
     if has('gui_running')

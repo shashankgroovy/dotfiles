@@ -86,3 +86,16 @@ map("c", "w!!", "w !sudo tee > /dev/null %")
 
 -- Change to directory of current file
 vim.api.nvim_create_user_command("CDC", "lcd %:p:h", { desc = "cd to current file's directory" })
+
+-- Delete all other buffers (replaces BufOnly.vim); keeps modified ones
+vim.api.nvim_create_user_command("BufOnly", function()
+  local cur = vim.api.nvim_get_current_buf()
+  local closed = 0
+  for _, b in ipairs(vim.api.nvim_list_bufs()) do
+    if b ~= cur and vim.bo[b].buflisted and not vim.bo[b].modified then
+      vim.api.nvim_buf_delete(b, {})
+      closed = closed + 1
+    end
+  end
+  vim.notify(("Closed %d buffer(s)"):format(closed))
+end, { desc = "Delete all buffers except the current one" })
