@@ -76,6 +76,62 @@ return {
     end,
   },
 
+  -- Experimental: popup cmdline / message / LSP-progress UI.
+  -- ,N toggles it; :Noice disable also works. Remove the spec if it doesn't stick.
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify", -- toast notifications; noice falls back to a bare overlay without it
+    },
+    keys = {
+      {
+        "<leader>N",
+        function()
+          if require("noice.config").is_running() then
+            vim.cmd("Noice disable")
+            -- noice leaves this behind; blink's cmdline menu would keep
+            -- floating at the old popup position
+            vim.g.ui_cmdline_pos = nil
+            pcall(function() require("noice.ui.cmdline").position = nil end)
+            vim.notify("noice disabled")
+          else
+            vim.cmd("Noice enable")
+            vim.notify("noice enabled")
+          end
+        end,
+        desc = "Toggle noice UI",
+      },
+    },
+    opts = {
+      lsp = {
+        -- blink.cmp owns signature help already
+        signature = { enabled = false },
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        },
+      },
+      presets = {
+        bottom_search = true,        -- / search stays at the bottom
+        long_message_to_split = true,
+        lsp_doc_border = true,       -- borders read better on transparent bg
+      },
+      -- centered cmdline popup (instead of the top-pinned command_palette preset)
+      views = {
+        cmdline_popup = {
+          position = { row = "45%", col = "50%" },
+          size = { min_width = 60, width = "auto" },
+        },
+        popupmenu = {
+          relative = "editor",
+          position = { row = "55%", col = "50%" },
+          size = { width = 60, height = 10 },
+        },
+      },
+    },
+  },
+
   -- Zen mode (replaces goyo + limelight)
   {
     "folke/zen-mode.nvim",
