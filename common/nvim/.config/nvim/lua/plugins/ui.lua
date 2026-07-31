@@ -58,8 +58,8 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button("e", "  New file", "<cmd>ene <BAR> startinsert<cr>"),
         dashboard.button("n", "  Toggle file explorer", "<cmd>Neotree toggle<cr>"),
-        dashboard.button("o", "󰱼  Open File", "<cmd>Telescope find_files<cr>"),
-        dashboard.button("f", "  Recent files", "<cmd>Telescope oldfiles<cr>"),
+        dashboard.button("f", "  Open File", "<cmd>Telescope find_files<cr>"),
+        dashboard.button("o", "  Recent files", "<cmd>Telescope oldfiles<cr>"),
         dashboard.button("r", "  Find Word", "<cmd>Telescope live_grep<cr>"),
         dashboard.button("m", "  Find Marks", "<cmd>Telescope marks<cr>"),
         dashboard.button("q", "  Quit NVIM", "<cmd>qa<cr>"),
@@ -82,7 +82,7 @@ return {
     cmd = "ZenMode",
     dependencies = { { "folke/twilight.nvim", opts = {} } },
     keys = {
-      { "<leader><leader>z", "<cmd>ZenMode<cr>", desc = "Zen mode" },
+      { "<leader><leader>z",  "<cmd>ZenMode<cr>",  desc = "Zen mode" },
       { "<leader><leader>zl", "<cmd>Twilight<cr>", desc = "Dim inactive code" },
     },
     opts = {},
