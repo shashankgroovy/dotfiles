@@ -30,9 +30,16 @@ return {
     config = function()
       -- LSP server stderr (terraform-ls is chatty) otherwise bloats
       -- ~/.local/state/nvim/lsp.log; flip to WARN when debugging LSP issues
-      vim.lsp.set_log_level(vim.log.levels.OFF)
+      vim.lsp.log.set_level(vim.log.levels.OFF)
 
-      vim.diagnostic.config({ jump = { float = true } })
+      -- float on [d / ]d jumps (jump.float is deprecated, gone in 0.14)
+      vim.diagnostic.config({
+        jump = {
+          on_jump = function(_, bufnr)
+            vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+          end,
+        },
+      })
 
       -- Advertise blink.cmp completion capabilities to every server
       local ok, blink = pcall(require, "blink.cmp")

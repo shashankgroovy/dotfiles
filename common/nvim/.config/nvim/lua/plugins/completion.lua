@@ -22,6 +22,10 @@ return {
       completion = {
         documentation = { auto_show = true },
       },
+      -- auto-show the menu while typing : and / like the old cmp-cmdline
+      cmdline = {
+        completion = { menu = { auto_show = true } },
+      },
       signature = { enabled = true },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },

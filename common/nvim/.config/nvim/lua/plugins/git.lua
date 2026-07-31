@@ -1,9 +1,11 @@
 return {
   { "lewis6991/gitsigns.nvim", event = { "BufReadPre", "BufNewFile" }, opts = {} },
 
+  -- VeryLazy, not cmd-gated: fugitive has dozens of entry commands
+  -- (:Gwrite, :Gread, :Gclog, ...) and is cheap to load
   {
     "tpope/vim-fugitive",
-    cmd = { "Git", "G", "Gdiffsplit", "Gvdiffsplit", "GBrowse" },
+    event = "VeryLazy",
     dependencies = { "tpope/vim-rhubarb" },
   },
 

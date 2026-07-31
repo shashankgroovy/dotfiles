@@ -6,7 +6,8 @@ return {
     opts = {},
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash jump" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter" },
+      -- no "x" mode: visual S belongs to nvim-surround (surround selection)
+      { "S", mode = { "n", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter" },
     },
   },
 
@@ -17,7 +18,14 @@ return {
   { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
 
   -- Multiple cursors, same <C-n> flow (successor of vim-multiple-cursors)
-  { "mg979/vim-visual-multi", event = "VeryLazy" },
+  {
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
+    init = function()
+      -- default VM leader is \\ which would put a timeout on the \\ buffers map
+      vim.g.VM_leader = ",m"
+    end,
+  },
 
   -- gS / gJ split-join
   { "AndrewRadev/splitjoin.vim", keys = { "gS", "gJ" } },

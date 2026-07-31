@@ -31,6 +31,7 @@ opt.foldnestmax = 10
 -- Editing
 opt.mouse = "a"
 opt.undofile = true
+opt.modeline = false
 opt.splitright = true
 opt.splitbelow = true
 
