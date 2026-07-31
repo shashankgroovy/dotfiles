@@ -8,23 +8,18 @@ return {
     opts = {},
   },
 
-  -- Statusline (replaces vim-airline)
+  -- Statusline + buffer tabline (replaces vim-airline); rendering both
+  -- through lualine keeps the two bars visually identical, airline-style
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = { theme = "tokyonight" },
-    },
-  },
-
-  -- Buffer tabline (replaces airline's tabline)
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = { mode = "buffers", diagnostics = "nvim_lsp" },
+      tabline = {
+        lualine_a = { { "buffers", symbols = { modified = " ●", alternate_file = "" } } },
+        lualine_z = { "tabs" },
+      },
     },
   },
 
