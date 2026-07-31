@@ -13,7 +13,9 @@ return {
     cmd = { "GpChatToggle", "GpChatNew", "GpChatFinder" },
     keys = { { "<leader>gp", "<cmd>GpChatToggle<cr>", desc = "AI chat" } },
     opts = {
-      openai_api_key = { "cat", "~/.config/openai/api_key" },
+      -- gp spawns the command without a shell, so ~ must be pre-expanded
+      openai_api_key = os.getenv("OPENAI_API_KEY")
+        or { "cat", vim.fn.expand("~/.config/openai/api_key") },
     },
   },
 

@@ -9,7 +9,6 @@ return {
     opts = {
       formatters_by_ft = {
         go = { "goimports", "gofmt" },
-        rust = { "rustfmt" },
         sh = { "shfmt" },
       },
       default_format_opts = { lsp_format = "fallback" },
@@ -25,9 +24,9 @@ return {
       local lint = require("lint")
 
       lint.linters_by_ft = {
+        -- no zsh entry: shellcheck doesn't support zsh
         sh = { "shellcheck" },
         bash = { "shellcheck" },
-        zsh = { "shellcheck" },
         dockerfile = { "hadolint" },
         markdown = { "markdownlint-cli2" },
         yaml = { "yamllint" },

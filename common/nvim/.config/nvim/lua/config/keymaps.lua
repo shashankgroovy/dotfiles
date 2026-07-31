@@ -21,6 +21,8 @@ map("n", "<C-S-Tab>", "<cmd>tabprevious<cr>")
 -- Buffer control
 map("n", "<leader>bn", "<cmd>bnext<cr>")
 map("n", "<leader>bp", "<cmd>bprevious<cr>")
+map("n", "<C-`>", "<cmd>bnext<cr>")
+map("n", "<C-S-`>", "<cmd>bprevious<cr>")
 
 -- Window navigation
 map("n", "<C-h>", "<C-w>h")
@@ -54,6 +56,10 @@ map("n", "gj", ":%!jq .<CR>:set ft=json<CR>", { silent = true })
 
 -- Format SQL via sqlformat
 map("n", "<leader>gs", function()
+  if vim.fn.executable("sqlformat") ~= 1 then
+    vim.notify("sqlformat not found (uv tool install sqlparse)", vim.log.levels.WARN)
+    return
+  end
   vim.opt_local.autoindent = false
   vim.cmd([[%!sqlformat --reindent --keywords upper --identifiers lower -]])
   vim.bo.syntax = "sql"
