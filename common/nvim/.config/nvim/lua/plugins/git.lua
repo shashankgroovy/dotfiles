@@ -9,6 +9,12 @@ return {
     dependencies = { "tpope/vim-rhubarb" },
   },
 
+  -- Branch/PR diffs and per-file git history
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
+  },
+
   {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",

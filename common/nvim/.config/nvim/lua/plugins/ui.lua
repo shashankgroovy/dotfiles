@@ -1,6 +1,13 @@
 return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
+  -- Popup cheatsheet for pending keymaps (pause after , g z [ ...)
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- Statusline (replaces vim-airline)
   {
     "nvim-lualine/lualine.nvim",

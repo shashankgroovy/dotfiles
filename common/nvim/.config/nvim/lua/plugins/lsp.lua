@@ -5,7 +5,6 @@ local servers = {
   "bashls",
   "cmake",
   "dockerls",
-  "emmet_language_server",
   "eslint",
   "gopls",
   "intelephense",
@@ -20,6 +19,17 @@ local servers = {
 }
 
 return {
+  -- nvim API types/completions for lua_ls when editing this config
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
