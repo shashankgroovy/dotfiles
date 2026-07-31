@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 -- UI
+opt.laststatus = 3 -- one global statusline; avoids per-window redraw artifacts
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
