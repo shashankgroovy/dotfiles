@@ -53,7 +53,7 @@ return {
           local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
           if not lang then return end
           -- without a highlights query, starting treesitter would disable
-          -- legacy syntax and render a colorless buffer — fall back instead
+          -- legacy syntax and render a colorless buffer - fall back instead
           if not vim.treesitter.query.get(lang, "highlights") then return end
           if not pcall(vim.treesitter.start, args.buf, lang) then return end
           vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

@@ -15,7 +15,7 @@ The core setup is cross-platform; macOS and Linux each add their own layer on to
 
 ```
 common/   cross-platform stow packages
-  nvim/       Neovim — pure Lua, lazy.nvim, LSP via mason, blink.cmp, treesitter
+  nvim/       Neovim - pure Lua, lazy.nvim, LSP via mason, blink.cmp, treesitter
   vim/        classic vim fallback (.vimrc + .vim)
   git/        gitconfig (identity comes from an untracked ~/.gitconfig.local)
   alacritty/  terminal (tokyo night, Iosevka Nerd Font)
@@ -26,8 +26,8 @@ common/   cross-platform stow packages
 mac/      macOS-only packages
   zsh/        zshrc (antidote, fzf-tab, atuin, zoxide, starship)
   aerospace/  tiling window manager
-linux/    desktop configs for the Linux box
-  i3/ polybar/ dunst/ rofi/ zathura/ kitty/ zsh-legacy/
+linux/    stow packages for the Linux box
+  i3/ polybar/ dunst/ rofi/ zathura/ kitty/ zsh-legacy/(reference only)
 bin/      small utilities
 ```
 
@@ -62,14 +62,12 @@ sudo pacman -S stow neovim starship fzf zoxide atuin direnv \
 # The cross-platform packages stow the same way
 stow -d ~/.dotfiles/common -t ~ nvim vim git starship mise alacritty tmux
 
-# Desktop configs are plain directories — link them into ~/.config
-for app in i3 polybar dunst rofi zathura kitty; do
-  ln -sfn ~/.dotfiles/linux/$app ~/.config/$app
-done
+# Desktop configs (rofi ships its helper scripts too)
+stow -d ~/.dotfiles/linux -t ~ i3 polybar dunst rofi zathura kitty
 ```
 
 The zshrc in `linux/zsh-legacy/` predates the current shell setup and is kept
-for reference; `mac/zsh/` is the maintained one and works on Linux too — just
+for reference; `mac/zsh/` is the maintained one and works on Linux too - just
 point the antidote `source` line at wherever your distro installs it.
 
 ### Finish up (both)
