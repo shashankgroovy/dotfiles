@@ -15,7 +15,7 @@ return {
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      options = { theme = "tokyonight" },
+      options = { theme = "tokyonight", globalstatus = true },
       tabline = {
         lualine_a = { { "buffers", symbols = { modified = " ●", alternate_file = "" } } },
         lualine_z = { "tabs" },
