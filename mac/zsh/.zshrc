@@ -108,6 +108,7 @@ alias refresh="exec zsh"
 alias :q="exit"
 alias vim='nvim'
 alias lg="lazygit"
+alias po="popd"
 
 # Modern Unix replacements
 # alias ls='eza --icons --git'
