@@ -1,6 +1,7 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/tokyo-night.toml"
+    # "~/.config/alacritty/themes/themes/cyber_punk_neon.toml"
+    "~/.config/alacritty/themes/themes/tokyo_night_enhanced.toml"
 ]
 
 [bell]
@@ -22,7 +23,7 @@ LC_CTYPE = "en_US.UTF-8"
 TERM = "alacritty"
 
 [font]
-size = 7.0
+size = 12.0
 
 [font.bold]
 family = "Iosevka Nerd Font"
@@ -46,3 +47,8 @@ multiplier = 10
 
 [window]
 opacity = 0.85
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

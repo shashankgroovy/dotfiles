@@ -1,0 +1,19 @@
+[core]
+	pager = delta
+[fetch]
+	prune = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers-left-format = ""
+	line-numbers-right-format = "│ "
+[merge]
+	conflictStyle = zdiff3
+[pager]
+	diff = diffnav
+
+# Identity and machine-specific settings live outside the repo
+[include]
+	path = ~/.gitconfig.local
