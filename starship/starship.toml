@@ -1,0 +1,69 @@
+add_newline = false
+
+# Language version modules ($python, $nodejs, $golang, $rust) are disabled
+# below; re-enable any of them and add their variable back to this format.
+format = """
+$directory\
+$git_branch\
+${custom.git_worktree}\
+$git_status \
+$character"""
+
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
+vimcmd_symbol = "[❮](bold green)"
+
+[directory]
+style = "bold cyan"
+truncation_length = 0
+truncate_to_repo = false
+truncation_symbol = ""
+read_only = " "
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = " [$symbol$branch]($style)"
+
+[git_status]
+stashed = ""   # hide git stash from showing entirely
+style = "bold yellow"
+format = " [$all_status$ahead_behind]($style)"
+
+[cmd_duration]
+disabled = true
+
+# Shows a marker when the current dir is a linked git worktree
+# (i.e. created via `git worktree add`), not the main checkout.
+# Detects this by checking if git's --git-dir contains "/worktrees/".
+[custom.git_worktree]
+description = "Indicator for linked git worktrees"
+when = "git rev-parse --git-dir 2>/dev/null | grep -q '/worktrees/'"
+command = "basename $(git rev-parse --git-dir)"
+format = " [⎇ $output]($style)"
+style = "bold red"
+
+[python]
+disabled = true
+symbol = " "
+format = " [$symbol($version )(\\($virtualenv\\) )]($style)"
+style = "bold yellow"
+
+[nodejs]
+disabled = true
+symbol = " "
+format = " [$symbol($version )]($style)"
+style = "bold green"
+
+[golang]
+disabled = true
+symbol = " "
+format = " [$symbol($version )]($style)"
+style = "bold cyan"
+
+[rust]
+disabled = true
+symbol = " "
+format = " [$symbol($version )]($style)"
+style = "bold red"
