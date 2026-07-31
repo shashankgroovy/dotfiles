@@ -1,9 +1,9 @@
 # skip tracking the vim swap files
 *.swp
 *.pyc
-vim/.vim/plugged/
+common/vim/.vim/plugged/
 
 # Skip alacritty themes
-alacritty/themes
+common/alacritty/.config/alacritty/themes
 
 # everything else looks clean :)
