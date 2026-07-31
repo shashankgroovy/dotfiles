@@ -30,6 +30,14 @@ return {
   -- gS / gJ split-join
   { "AndrewRadev/splitjoin.vim", keys = { "gS", "gJ" } },
 
+  -- Project-wide search & replace with live preview
+  {
+    "MagicDuck/grug-far.nvim",
+    cmd = "GrugFar",
+    keys = { { ";s", "<cmd>GrugFar<cr>", desc = "Search & replace" } },
+    opts = {},
+  },
+
   -- Undo history visualizer
   {
     "mbbill/undotree",

@@ -12,4 +12,12 @@ return {
   { "github/copilot.vim", event = "VeryLazy" },
 
   { "wakatime/vim-wakatime", event = "VeryLazy" },
+
+  -- In-buffer markdown rendering (headings, tables, checkboxes)
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = "markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    opts = {},
+  },
 }

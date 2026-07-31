@@ -6,7 +6,6 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     event = { "InsertEnter", "CmdlineEnter" },
-    dependencies = { "rafamadriz/friendly-snippets" },
     opts = {
       keymap = {
         -- <CR> confirms, like the old cmp setup
@@ -28,7 +27,14 @@ return {
       },
       signature = { enabled = true },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lazydev", "lsp", "path", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
     },
