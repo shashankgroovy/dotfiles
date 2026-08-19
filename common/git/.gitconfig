@@ -12,7 +12,8 @@
 [merge]
 	conflictStyle = zdiff3
 [pager]
-	diff = diffnav
+	# diffnav can't render conflict (diff --cc) hunks and crashes, corrupting the terminal; fall back to delta for those
+	diff = "sh -c 'if git diff --name-only --diff-filter=U | grep -q .; then delta; else diffnav; fi'"
 
 # Identity and machine-specific settings live outside the repo
 [include]
