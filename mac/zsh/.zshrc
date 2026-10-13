@@ -144,8 +144,12 @@ alias gs="git stash"
 alias gsp="git stash pop"
 alias gst="git status"
 alias gfp="git fetch --prune"
+alias gw="git worktree"
 alias sos="git fsck --cache --no-reflogs --lost-found --dangling HEAD"
 
 # macOS / fun
 alias gn="cowsay -d 'Later, hacker' && sleep 3 && sudo shutdown -h now"
 alias linux="cowsay -s 'We know you are on a linux machine'"
+
+# opencode
+export PATH=/Users/shanks/.opencode/bin:$PATH
