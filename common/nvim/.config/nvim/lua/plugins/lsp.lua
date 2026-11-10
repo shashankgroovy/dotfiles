@@ -3,7 +3,6 @@
 -- so there is no manual vim.lsp.enable() call anywhere.
 local servers = {
   "bashls",
-  "cmake",
   "dockerls",
   "eslint",
   "gopls",
@@ -34,7 +33,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
+      { "mason-org/mason.nvim", cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate", "MasonLog" }, opts = {} },
       "mason-org/mason-lspconfig.nvim",
     },
     config = function()
