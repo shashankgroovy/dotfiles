@@ -8,3 +8,6 @@ common/vim/.vim/plugged/
 
 # Karabiner rewrites these on every change
 mac/karabiner/.config/karabiner/automatic_backups/
+
+# Per-machine nvim overrides (e.g. colorscheme)
+common/nvim/.config/nvim/lua/config/local.lua

@@ -20,7 +20,6 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "tokyonight-night" } },
   checker = { enabled = false },
   change_detection = { notify = false },
   rocks = { enabled = false }, -- nothing here needs luarocks
