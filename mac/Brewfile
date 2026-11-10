@@ -1,0 +1,136 @@
+# brew bundle --file=~/.dotfiles/mac/Brewfile
+# Not covered (install by hand): 1Password, Claude, MongoDB Compass, Obsidian, Slack, Zed,
+#   Alacritty and MacDown (casks disabled), Logi Options+
+# Alacritty terminfo: mkdir -p ~/.terminfo/61 && cp /Applications/Alacritty.app/Contents/Resources/61/alacritty* ~/.terminfo/61/
+
+tap "dbcli/tap"
+tap "dbt-labs/dbt"
+tap "nikitabobko/tap"
+tap "textualize/homebrew"
+tap "universal-ctags/universal-ctags"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin", restart_service: :changed
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
+# Apjanke's fork of the classic cowsay project
+brew "cowsay"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Git diff pager based on delta but with a file tree
+brew "diffnav"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Modern, maintained replacement for ls
+brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Geospatial Data Abstraction Library
+brew "gdal"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
+# GitHub command-line tool
+brew "gh"
+# Small git utilities
+brew "git-extras"
+# Render markdown on the CLI
+brew "glow"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
+# Improved top (interactive process viewer)
+brew "htop"
+# Interactive computing in Python
+brew "ipython"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Pager program similar to more
+brew "less"
+# CLI for SQLite Databases with auto-completion and syntax highlighting
+brew "litecli"
+# Text-based web browser
+brew "lynx"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Development kit for the Java programming language
+brew "openjdk@17"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# CLI for Postgres with auto-completion and syntax highlighting
+brew "pgcli"
+# Object-relational database system
+brew "postgresql@18", link: true
+# File browser
+brew "ranger"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# Whitespace formatter for different query languages
+brew "sql-formatter"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# User interface to the TELNET protocol
+brew "telnet"
+# Text interface for Git repositories
+brew "tig"
+# Simplified and community-driven man pages
+brew "tldr"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Maintained ctags implementation
+brew "universal-ctags", args: ["HEAD"]
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Internet file retriever
+brew "wget"
+# Linter for YAML files
+brew "yamllint"
+# JavaScript package manager
+brew "yarn"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# General-purpose lossless data-compression library
+brew "zlib"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Build analytics the way engineers build applications
+brew "dbt-labs/dbt/dbt", trusted: true
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace", trusted: true
+# Command-line tools for building and debugging Android apps
+cask "android-commandlinetools"
+# Android SDK component
+cask "android-platform-tools"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Web browser
+cask "firefox"
+cask "font-iosevka-nerd-font"
+cask "font-meslo-lg-nerd-font"
+# Keyboard customiser
+cask "karabiner-elements"
+# Clipboard manager
+cask "maccy"

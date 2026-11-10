@@ -3,7 +3,8 @@
 *.pyc
 common/vim/.vim/plugged/
 
-# Skip alacritty themes
-common/alacritty/.config/alacritty/themes
 
 # everything else looks clean :)
+
+# Karabiner rewrites these on every change
+mac/karabiner/.config/karabiner/automatic_backups/
