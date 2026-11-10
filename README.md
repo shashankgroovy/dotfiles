@@ -18,14 +18,18 @@ common/   cross-platform stow packages
   nvim/       Neovim - pure Lua, lazy.nvim, LSP via mason, blink.cmp, treesitter
   vim/        classic vim fallback (.vimrc + .vim)
   git/        gitconfig (identity comes from an untracked ~/.gitconfig.local)
-  alacritty/  terminal (tokyo night, Iosevka Nerd Font)
+  alacritty/  terminal (Iosevka Nerd Font; themes from alacritty-theme submodule)
   starship/   prompt
   mise/       global tool versions (go, node, python, terraform)
   tmux/       terminal multiplexer
+  atuin/      shell history
+  ssh/        ssh config: work key for github.com, personal key for github-personal
   vscode/     editor settings
 mac/      macOS-only packages
+  Brewfile    everything installed with Homebrew (not a stow package)
   zsh/        zshrc (antidote, fzf-tab, atuin, zoxide, starship)
   aerospace/  tiling window manager
+  karabiner/  keyboard remapping
 linux/    stow packages for the Linux box
   i3/ polybar/ dunst/ rofi/ zathura/ kitty/ zsh-legacy/(reference only)
 bin/      small utilities
@@ -33,23 +37,41 @@ bin/      small utilities
 
 ## Setup
 
-Clone first, then follow your OS:
+### 1. SSH keys
+
+The repo is cloned with the personal key through the `github-personal` host,
+so create the keys and a minimal ssh config first. The `ssh` package replaces
+this config once stowed.
 
 ```sh
-git clone git@github.com:shashankgroovy/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+ssh-keygen -t ed25519 -C "<work email>"     -f ~/.ssh/id_ed25519_work
+ssh-keygen -t ed25519 -C "<personal email>" -f ~/.ssh/id_ed25519_personal
+printf 'Host github-personal\n  HostName github.com\n  IdentityFile ~/.ssh/id_ed25519_personal\n  IdentitiesOnly yes\n' > ~/.ssh/config
+```
+
+Add each `.pub` to its GitHub account, then check: `ssh -T git@github-personal`.
+
+### 2. Clone
+
+```sh
+git clone --recurse-submodules git@github-personal:shashankgroovy/dotfiles.git ~/.dotfiles
+rm ~/.ssh/config    # stow links the tracked one below
 ```
 
 ### macOS
 
-```sh
-brew install stow neovim starship mise antidote fzf zoxide atuin direnv \
-             eza bat ripgrep lazygit git-delta shellcheck shfmt
+Install Alacritty first (its cask is disabled), then:
 
-# Symlink everything into $HOME
-stow -d ~/.dotfiles/common -t ~ nvim vim git starship mise alacritty tmux
-stow -d ~/.dotfiles/mac    -t ~ zsh aerospace
+```sh
+cd ~/.dotfiles && make mac
 ```
+
+That runs submodules, `brew bundle` (including Iosevka Nerd Font), stow,
+Alacritty's terminfo and `mise install`. Each step is also its own target,
+e.g. `make stow-mac`; `make unstow-mac` removes the links.
+
+The Brewfile header lists the apps it can't install. Karabiner needs its
+driver and Input Monitoring allowed in System Settings on first launch.
 
 ### Linux
 
@@ -59,11 +81,7 @@ stow -d ~/.dotfiles/mac    -t ~ zsh aerospace
 sudo pacman -S stow neovim starship fzf zoxide atuin direnv \
                eza bat ripgrep lazygit git-delta shellcheck shfmt
 
-# The cross-platform packages stow the same way
-stow -d ~/.dotfiles/common -t ~ nvim vim git starship mise alacritty tmux
-
-# Desktop configs (rofi ships its helper scripts too)
-stow -d ~/.dotfiles/linux -t ~ i3 polybar dunst rofi zathura kitty
+cd ~/.dotfiles && make linux    # submodules, Iosevka Nerd Font, stow, mise
 ```
 
 The zshrc in `linux/zsh-legacy/` predates the current shell setup and is kept
@@ -73,10 +91,12 @@ point the antidote `source` line at wherever your distro installs it.
 ### Finish up (both)
 
 ```sh
-# Machine-local git identity (not tracked)
-printf '[user]\n\tname = Your Name\n\temail = you@example.com\n' > ~/.gitconfig.local
+# Machine-local git identity (not tracked); work identity by default
+printf '[user]\n\tname = Your Name\n\temail = you@work.com\n' > ~/.gitconfig.local
+git -C ~/.dotfiles config user.email "you@personal.com"
 ```
 
 Re-running `stow` is idempotent; `stow -D` removes a package's links.
 First `nvim` launch bootstraps lazy.nvim and installs plugins pinned by
 `lazy-lock.json`; language servers arrive via `:Mason`.
+To update the Alacritty themes: `git -C ~/.dotfiles submodule update --remote`.
